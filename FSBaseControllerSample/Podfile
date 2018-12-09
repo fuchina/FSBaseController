@@ -1,0 +1,8 @@
+platform:ios,'8.2'
+
+target 'FSBaseControllerSample' do
+
+  pod 'FSBaseController', :path => '../'
+
+end
+
