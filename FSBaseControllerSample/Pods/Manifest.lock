@@ -1,5 +1,5 @@
 PODS:
-  - FSBaseController (0.0.1):
+  - FSBaseController (0.0.2):
     - FSKit
     - FSTrack
     - FSUIKit
@@ -33,7 +33,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FSBaseController: 9cc0d4ad212f13090777cf500cec8f9eab5dadf6
+  FSBaseController: 55b8b3cd79477c4bb377b945b33100181d4565cd
   FSCalculator: 3ab79307b008ebf07b4fa7fe827f418d7c65fd14
   FSKit: 1578169720d621fb12b806a8d0faf8ba95afb0e2
   FSTrack: f71ebfd16b15dad94cd816333fd1cb3ba2cd775e

@@ -1,6 +1,6 @@
 {
   "name": "FSBaseController",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "FSBaseController is a tool for show logs when app run",
   "description": "This is a very small software library, offering a few methods to help with programming.",
   "homepage": "https://github.com/fuchina/FSBaseController",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/fuchina/FSBaseController.git",
-    "tag": "0.0.1"
+    "tag": "0.0.2"
   },
   "platforms": {
     "ios": "8.2"
