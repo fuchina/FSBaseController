@@ -51,6 +51,6 @@ typedef void(^GZSAdvancedBlock)(void);
 /*
  * 做统计用，需要统计的方法直接调这个方法，传入不同的索引
  */
-- (void)baseClickForTrack:(NSInteger)index;
+- (void)event:(NSString *)event;
 
 @end

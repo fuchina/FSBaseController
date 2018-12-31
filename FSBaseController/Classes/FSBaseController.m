@@ -250,9 +250,10 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
     return isBigScreen;
 }
 
-- (void)baseClickForTrack:(NSInteger)index{
-    NSString *event = [[NSString alloc] initWithFormat:@"%@_%d",NSStringFromClass(self.class),(int)index];
-    [FSTrack event:event];
+- (void)event:(NSString *)event{
+    if ([event isKindOfClass:NSString.class] && event.length) {
+        [FSTrack event:event];        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
