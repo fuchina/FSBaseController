@@ -17,7 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
-    [self becomeFirstResponder];
+    if (self.canBecomeFirstResponder) {
+        [self becomeFirstResponder];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    if ([self canResignFirstResponder]) {
+        [self resignFirstResponder];
+    }
 }
 
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
