@@ -236,18 +236,15 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
     static BOOL isPhoneX = NO;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        isPhoneX = ([UIScreen instancesRespondToSelector:@selector(currentMode)]?CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size):NO);
+        if (@available(iOS 11.0, *)) {
+            UIWindow *window = UIApplication.sharedApplication.delegate.window;
+            CGFloat bottomSafeInset = window.safeAreaInsets.bottom;
+            if (bottomSafeInset == 34.0f || bottomSafeInset == 21.0f) {
+                isPhoneX = YES;
+            }
+        }
     });
     return isPhoneX;
-}
-
-+ (BOOL)isBigScreen{
-    static BOOL isBigScreen = NO;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        isBigScreen = (UIScreen.mainScreen.bounds.size.height > 800);
-    });
-    return isBigScreen;
 }
 
 - (void)event:(NSString *)event{
