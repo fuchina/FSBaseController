@@ -239,7 +239,7 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
         if (@available(iOS 11.0, *)) {
             UIWindow *window = UIApplication.sharedApplication.delegate.window;
             CGFloat bottomSafeInset = window.safeAreaInsets.bottom;
-            if (bottomSafeInset == 34.0f || bottomSafeInset == 21.0f) {
+            if (bottomSafeInset > 10) {
                 isPhoneX = YES;
             }
         }
