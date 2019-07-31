@@ -233,18 +233,35 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
 }
 
 + (BOOL)isIPhoneX{
-    static BOOL isPhoneX = NO;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        if (@available(iOS 11.0, *)) {
-            UIWindow *window = UIApplication.sharedApplication.delegate.window;
-            CGFloat bottomSafeInset = window.safeAreaInsets.bottom;
-            if (bottomSafeInset > 10) {
-                isPhoneX = YES;
+    if (@available(iOS 11.0, *)) {
+        static dispatch_once_t onceToken;
+        static BOOL result = NO;
+        UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+        if (window) {
+            dispatch_once(&onceToken, ^{
+                UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+                BOOL landscape = (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight);
+                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+                    if (!landscape && window.safeAreaInsets.top > 0 && window.safeAreaInsets.bottom > 0) {
+                        result = YES;
+                    } else if (landscape && window.safeAreaInsets.left > 0 && window.safeAreaInsets.right > 0) {
+                        result = YES;
+                    } else {
+                        // nothing
+                    }
+                }
+            });
+        } else {
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+                CGSize size = [UIScreen mainScreen].bounds.size;
+                if (MAX(size.width, size.height) >= 812) {
+                    result = YES;
+                }
             }
         }
-    });
-    return isPhoneX;
+        return result;
+    }
+    return NO;
 }
 
 - (void)event:(NSString *)event{
