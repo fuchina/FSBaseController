@@ -12,10 +12,25 @@
 
 @end
 
-@implementation FSSelectController
+@implementation FSSelectController{
+    NSMutableArray  *_multis;
+}
+
+- (void)confirmSelected{
+    if (self.multiSelectCallback) {
+        self.multiSelectCallback(self, _multis, _array);
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+        
+    if (_isMultiSelect) {
+        _multis = [[NSMutableArray alloc] init];
+        
+        UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(confirmSelected)];
+        self.navigationItem.rightBarButtonItem = bbi;
+    }
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) style:UITableViewStylePlain];
     tableView.delegate = self;
@@ -42,13 +57,31 @@
         cell.textLabel.text = _array[indexPath.row];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    
+    if (_isMultiSelect) {
+        if ([_multis containsObject:indexPath]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }else{
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (_block) {
-        _block(self,indexPath,_array);
+    if (_isMultiSelect) {
+        if (![_multis containsObject:indexPath]) {
+            [_multis addObject:indexPath];
+        }else{
+            [_multis removeObject:indexPath];
+        }
+        
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }else{
+        if (_block) {
+            _block(self,indexPath,_array);
+        }
     }
 }
 

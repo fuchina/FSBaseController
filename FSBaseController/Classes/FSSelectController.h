@@ -13,8 +13,16 @@ typedef void(^FSSelectControllerBlock)(FSSelectController *bSelectController,NSI
 
 @interface FSSelectController : FSBaseController
 
+// 是否时是多选模式
+@property (nonatomic,assign) BOOL                           isMultiSelect;
+
 @property (nonatomic,strong) NSArray                        *array;
+
+// 单选的回调
 @property (nonatomic,copy) FSSelectControllerBlock          block;
+
+// 多选的回调
+@property (nonatomic,copy) void (^multiSelectCallback)(FSSelectController *bSelectController,NSArray<NSIndexPath *> *selecteds,NSArray *bArray);
 
 @property (nonatomic,copy) void (^configCell)(UITableViewCell *bCell,NSIndexPath *bIndexPath,NSArray *bArray);
 

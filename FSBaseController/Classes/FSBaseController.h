@@ -16,7 +16,9 @@
 #import "FSKit.h"
 #import "FSTrack.h"
 
-#define FS_iPhone_X         [FSBaseController isIPhoneX]
+#define FS_iPhone_X                 [FSBaseController isIPhoneX]
+#define FS_StatusBar_Height         (FS_iPhone_X ? 44 : 20)
+#define FS_TabBar_Height            ((FS_iPhone_X) ? 83 : 49)
 
 typedef void(^GZSAdvancedBlock)(void);
 @interface FSBaseController : UIViewController
