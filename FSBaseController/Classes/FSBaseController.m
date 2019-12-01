@@ -125,7 +125,7 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
 
 - (FSTapScrollView *)scrollView{
     if (!_scrollView) {
-        _scrollView = [[FSTapScrollView alloc] initWithFrame:CGRectMake(0, 64, WIDTHFC, HEIGHTFC - 64)];
+        _scrollView = [[FSTapScrollView alloc] initWithFrame:CGRectMake(0, _fs_statusAndNavigatorHeight(), WIDTHFC, HEIGHTFC - _fs_statusAndNavigatorHeight())];
         _scrollView.contentSize = CGSizeMake(WIDTHFC, HEIGHTFC);
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.delaysContentTouches = NO;
@@ -230,44 +230,6 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
         [self.view addSubview:_vanView];
     }
     return _vanView;
-}
-
-+ (BOOL)isIPhoneX{
-    if (@available(iOS 11.0, *)) {
-        static dispatch_once_t onceToken;
-        static BOOL result = NO;
-        UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
-        if (window) {
-            dispatch_once(&onceToken, ^{
-                UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
-                BOOL landscape = (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight);
-                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-                    if (!landscape && window.safeAreaInsets.top > 0 && window.safeAreaInsets.bottom > 0) {
-                        result = YES;
-                    } else if (landscape && window.safeAreaInsets.left > 0 && window.safeAreaInsets.right > 0) {
-                        result = YES;
-                    } else {
-                        // nothing
-                    }
-                }
-            });
-        } else {
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-                CGSize size = [UIScreen mainScreen].bounds.size;
-                if (MAX(size.width, size.height) >= 812) {
-                    result = YES;
-                }
-            }
-        }
-        return result;
-    }
-    return NO;
-}
-
-- (void)event:(NSString *)event{
-    if ([event isKindOfClass:NSString.class] && event.length) {
-        [FSTrack event:event];        
-    }
 }
 
 - (void)didReceiveMemoryWarning {

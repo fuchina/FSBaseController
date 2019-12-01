@@ -9,6 +9,7 @@
 #import "FSTextViewController.h"
 #import "UIViewController+BackButtonHandler.h"
 #import "UIViewExt.h"
+#import "FSApp.h"
 
 @interface FSTextViewController ()
 
@@ -32,12 +33,12 @@
 }
 
 - (void)textDeisgnViews{
-    self.title = self.title?:(_text?NSLocalizedString(@"Please edit", nil):NSLocalizedString(@"Please fill in", nil));
-    UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Confirm", nil) style:UIBarButtonItemStylePlain target:self action:@selector(doneAction)];
+    self.title = @"请输入";
+    UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithTitle:@"确认" style:UIBarButtonItemStylePlain target:self action:@selector(doneAction)];
     self.navigationItem.rightBarButtonItem = bbi;
     [self addKeyboardNotificationWithBaseOn:0];
 
-    _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 64 + (UIScreen.mainScreen.bounds.size.height > 800?24:0), UIScreen.mainScreen.bounds.size.width, 0)];
+    _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, _fs_statusAndNavigatorHeight(), UIScreen.mainScreen.bounds.size.width, 0)];
     _textView.font = [UIFont systemFontOfSize:16];
     _textView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_textView];

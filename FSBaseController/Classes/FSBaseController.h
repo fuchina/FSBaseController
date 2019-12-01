@@ -15,10 +15,7 @@
 #import "FuSoft.h"
 #import "FSKit.h"
 #import "FSTrack.h"
-
-#define FS_iPhone_X                 [FSBaseController isIPhoneX]
-#define FS_StatusBar_Height         (FS_iPhone_X ? 44 : 20)
-#define FS_TabBar_Height            ((FS_iPhone_X) ? 83 : 49)
+#import "FSApp.h"
 
 typedef void(^GZSAdvancedBlock)(void);
 @interface FSBaseController : UIViewController
@@ -45,12 +42,5 @@ typedef void(^GZSAdvancedBlock)(void);
 - (void)addKeyboardNotificationWithAdvancedBlock:(GZSAdvancedBlock)advancedBlock;
 
 - (void)showWaitView:(BOOL)show;
-
-+ (BOOL)isIPhoneX;
-
-/*
- * 做统计用，需要统计的方法直接调这个方法，传入不同的索引
- */
-- (void)event:(NSString *)event;
 
 @end
