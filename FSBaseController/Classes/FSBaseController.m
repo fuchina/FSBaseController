@@ -7,7 +7,6 @@
 //
 
 #import "FSBaseController.h"
-#import "FSLeftItem.h"
 
 typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
 
@@ -50,73 +49,12 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
     [super viewDidLoad];
     [FSTrack event:NSStringFromClass([self class])];
     self.view.backgroundColor = RGBCOLOR(245, 245, 245, 1);
-
+    
     _backTapView = [FSViewManager viewWithFrame:self.view.bounds backColor:nil];
     [self.view insertSubview:_backTapView atIndex:0];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActionBase)];
     [_backTapView addGestureRecognizer:tap];
-
-//    if (self.navigationController.viewControllers.count > 1) {
-//        UIViewController *frontVC = self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2];
-//
-//        NSString *title = nil;
-//        if (frontVC.title && (frontVC.title.length <= 5)) {
-//            title = frontVC.title;
-//        }else{
-//            title = @"返回";
-//        }
-//
-//        UIBarButtonItem *backBBI = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:nil action:nil];
-//        frontVC.navigationItem.backBarButtonItem = backBBI;
-//    }
-    
-    
-//    self.navigationController.navigationBar.barTintColor = FSAPPCOLOR;
-    /*
-    if (self.navigationController.viewControllers.count > 1) {
-        WEAKSELF(this);
-        FSLeftItem *item = [[FSLeftItem alloc] initWithFrame:CGRectMake(0, 20, WIDTHFC / 4, 44)];
-        item.tapBlock = ^ (){
-            [this popActionBase];
-        };
-        BOOL isWhite = self.navigationController.navigationBar.barStyle == UIBarStyleBlack;
-        if (isWhite) {            
-            item.color = [UIColor whiteColor];
-        }else{
-            item.color = FSAPPCOLOR;
-        }
-        item.mode = FSItemTitleModeNOChar;
-        
-        UIViewController *frontVC = self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2];
-        if (frontVC.title && (frontVC.title.length <= 5)) {
-            item.textLabel.text = frontVC.title;
-        }else{
-            item.textLabel.text = @"返回";
-        }
-        
-        UIBarButtonItem *leftBBI = [[UIBarButtonItem alloc] initWithCustomView:item];
-        self.navigationItem.leftBarButtonItem = leftBBI;
-    }
-     */
-}
-
-- (void)setBackTintColor:(UIColor *)backTintColor{
-    if (_backTintColor != backTintColor) {
-        _backTintColor = backTintColor;
-        
-        FSLeftItem *backButton = (FSLeftItem *)self.navigationItem.leftBarButtonItem.customView;
-        backButton.color = backTintColor;
-    }
-}
-
-- (void)setBackTitle:(NSString *)backTitle{
-    if (_backTitle != backTitle) {
-        _backTitle = backTitle;
-        
-        FSLeftItem *backButton = (FSLeftItem *)self.navigationItem.leftBarButtonItem.customView;
-        backButton.textLabel.text = backTitle;
-    }
 }
 
 - (void)tapActionBase{
@@ -137,14 +75,6 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
     }
     return _scrollView;
 }
-
-//- (void)popActionBase{
-//    if (self.popBlock) {
-//        self.popBlock(self);
-//    }else{
-//        [self.navigationController popViewControllerAnimated:YES];
-//    }
-//}
 
 - (void)setLetStatusBarWhite:(BOOL)letStatusBarWhite{
     _letStatusBarWhite = letStatusBarWhite;

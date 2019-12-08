@@ -27,10 +27,8 @@ typedef void(^GZSAdvancedBlock)(void);
 
  */
 @property (nonatomic,assign) BOOL               letStatusBarWhite;  // 把整个App都变了
-@property (nonatomic,strong) UIColor            *backTintColor;     // 设置导航栏返回按钮的颜色
 
 @property (nonatomic,strong) FSTapScrollView    *scrollView;
-@property (nonatomic,copy)   NSString           *backTitle;
 @property (nonatomic,strong) UITableView        *baseTableView;
 
 @property (nonatomic,strong) FSVanView          *vanView;
