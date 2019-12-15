@@ -47,11 +47,15 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    // translucent为YES，self.view布局从屏幕顶部(0,0)开始，如果为NO会从导航栏底部开始
+    self.navigationController.navigationBar.translucent = YES;
+    
     [FSTrack event:NSStringFromClass([self class])];
     self.view.backgroundColor = RGBCOLOR(245, 245, 245, 1);
     
     _backTapView = [FSViewManager viewWithFrame:self.view.bounds backColor:nil];
-    [self.view insertSubview:_backTapView atIndex:0];
+    [self.view addSubview:_backTapView];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActionBase)];
     [_backTapView addGestureRecognizer:tap];
@@ -63,8 +67,9 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
 
 - (FSTapScrollView *)scrollView{
     if (!_scrollView) {
+        // 纵坐标即使为0，子视图也是从导航栏下面开始布局
         _scrollView = [[FSTapScrollView alloc] initWithFrame:CGRectMake(0, _fs_statusAndNavigatorHeight(), WIDTHFC, HEIGHTFC - _fs_statusAndNavigatorHeight())];
-        _scrollView.contentSize = CGSizeMake(WIDTHFC, HEIGHTFC);
+        _scrollView.contentSize = CGSizeMake(WIDTHFC, HEIGHTFC + 10);
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.delaysContentTouches = NO;
         if (_backTapView) {
