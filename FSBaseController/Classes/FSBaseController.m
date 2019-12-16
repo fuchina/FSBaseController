@@ -23,6 +23,7 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
 
 @implementation FSBaseController{
     BOOL        _onceBase;
+    BOOL        _onceBase_viewWillAppear;
     UIView      *_backTapView;
 }
 
@@ -36,6 +37,16 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (!_onceBase_viewWillAppear) {
+        _onceBase_viewWillAppear = YES;
+        
+        // translucent为YES，self.view布局从屏幕顶部(0,0)开始，如果为NO会从导航栏底部开始
+        self.navigationController.navigationBar.translucent = YES;
+    }
+}
+
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if (!_onceBase) {
@@ -47,9 +58,6 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
-    // translucent为YES，self.view布局从屏幕顶部(0,0)开始，如果为NO会从导航栏底部开始
-    self.navigationController.navigationBar.translucent = YES;
     
     [FSTrack event:NSStringFromClass([self class])];
     self.view.backgroundColor = RGBCOLOR(245, 245, 245, 1);
