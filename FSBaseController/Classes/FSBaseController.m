@@ -85,6 +85,10 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
         }else{
             [self.view addSubview:_scrollView];
         }
+        __weak typeof(self)this = self;
+        _scrollView.click = ^(FSTapScrollView *view) {
+            [this tapActionBase];
+        };
     }
     return _scrollView;
 }
