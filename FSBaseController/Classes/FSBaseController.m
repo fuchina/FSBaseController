@@ -8,7 +8,7 @@
 
 #import "FSBaseController.h"
 
-typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
+//typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
 
 @interface FSBaseController ()
 
@@ -17,7 +17,7 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
 @property (nonatomic,assign) NSTimeInterval             baseTimeDelay;
 @property (nonatomic,assign) CGFloat                    baseOnPropertyBase;
 
-@property (nonatomic,copy) GZSAdvancedBlock             advancedBlock;
+//@property (nonatomic,copy) GZSAdvancedBlock             advancedBlock;
 
 @end
 
@@ -148,36 +148,36 @@ typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
     }
 }
 
-- (void)addKeyboardNotificationWithAdvancedBlock:(GZSAdvancedBlock)advancedBlock{
-    _advancedBlock = advancedBlock;
-    [self addKeyboardNotificationWithBaseOn:0];
-}
+//- (void)addKeyboardNotificationWithAdvancedBlock:(GZSAdvancedBlock)advancedBlock{
+//    _advancedBlock = advancedBlock;
+//    [self addKeyboardNotificationWithBaseOn:0];
+//}
 
-- (void)addKeyboardNotificationWithBaseOn:(CGFloat)baseOn{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keybaordActionInPropertyBase:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keybaordActionInPropertyBase:) name:UIKeyboardWillHideNotification object:nil];
-    self.baseOnPropertyBase = baseOn;
-}
+//- (void)addKeyboardNotificationWithBaseOn:(CGFloat)baseOn{
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keybaordActionInPropertyBase:) name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keybaordActionInPropertyBase:) name:UIKeyboardWillHideNotification object:nil];
+//    self.baseOnPropertyBase = baseOn;
+//}
 
-- (void)keybaordActionInPropertyBase:(NSNotification *)notification{
-    if (_advancedBlock) {
-        _advancedBlock();
-    }
-    
-    if (_scrollView) {
-        self.scrollView.contentSize = [FSKit keyboardNotificationScroll:notification baseOn:self.baseOnPropertyBase];
-    }else if (_baseTableView){
-        self.baseTableView.contentSize = [FSKit keyboardNotificationScroll:notification baseOn:self.baseOnPropertyBase];
-    }
-}
+//- (void)keybaordActionInPropertyBase:(NSNotification *)notification{
+//    if (_advancedBlock) {
+//        _advancedBlock();
+//    }
+//
+//    if (_scrollView) {
+//        self.scrollView.contentSize = [FSKit keyboardNotificationScroll:notification baseOn:self.baseOnPropertyBase];
+//    }else if (_baseTableView){
+//        self.baseTableView.contentSize = [FSKit keyboardNotificationScroll:notification baseOn:self.baseOnPropertyBase];
+//    }
+//}
 
-- (FSVanView *)vanView{
-    if (!_vanView) {
-        _vanView = [[FSVanView alloc] initWithFrame:self.view.bounds];
-        [self.view addSubview:_vanView];
-    }
-    return _vanView;
-}
+//- (FSVanView *)vanView{
+//    if (!_vanView) {
+//        _vanView = [[FSVanView alloc] initWithFrame:self.view.bounds];
+//        [self.view addSubview:_vanView];
+//    }
+//    return _vanView;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

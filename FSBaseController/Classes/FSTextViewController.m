@@ -36,7 +36,7 @@
     self.title = @"请输入";
     UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithTitle:@"确认" style:UIBarButtonItemStylePlain target:self action:@selector(doneAction)];
     self.navigationItem.rightBarButtonItem = bbi;
-    [self addKeyboardNotificationWithBaseOn:0];
+//    [self addKeyboardNotificationWithBaseOn:0];
 
     _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, _fs_statusAndNavigatorHeight(), UIScreen.mainScreen.bounds.size.width, 0)];
     _textView.font = [UIFont systemFontOfSize:16];
