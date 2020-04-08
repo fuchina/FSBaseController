@@ -17,7 +17,7 @@
 #import "FSTrack.h"
 #import "FSApp.h"
 
-typedef void(^GZSAdvancedBlock)(void);
+//typedef void(^GZSAdvancedBlock)(void);
 @interface FSBaseController : UIViewController
 
 /*
