@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "FSNavigationController.h"
 #import "FSTapScrollView.h"
-#import "FSVanView.h"
 #import "FSViewManager.h"
 #import "UIViewExt.h"
 #import "FuSoft.h"
@@ -17,7 +16,6 @@
 #import "FSTrack.h"
 #import "FSApp.h"
 
-//typedef void(^GZSAdvancedBlock)(void);
 @interface FSBaseController : UIViewController
 
 /*
@@ -29,15 +27,6 @@
 @property (nonatomic,assign) BOOL               letStatusBarWhite;  // 把整个App都变了
 
 @property (nonatomic,strong) FSTapScrollView    *scrollView;
-//@property (nonatomic,strong) UITableView        *baseTableView;
-
-//@property (nonatomic,strong) FSVanView          *vanView;
-
-//@property (nonatomic,copy) void (^popBlock)(FSBaseController *bVC);
-//@property (nonatomic,copy) void (^popParamBlock)(FSBaseController *bVC,id object);
-
-//- (void)addKeyboardNotificationWithBaseOn:(CGFloat)baseOn;
-//- (void)addKeyboardNotificationWithAdvancedBlock:(GZSAdvancedBlock)advancedBlock;
 
 - (void)showWaitView:(BOOL)show;
 

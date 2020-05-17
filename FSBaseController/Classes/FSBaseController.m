@@ -8,16 +8,10 @@
 
 #import "FSBaseController.h"
 
-//typedef void(^FSBaseAlertBlock)(UIAlertView *bAlertView,NSInteger bIndex);
-
 @interface FSBaseController ()
 
 @property (nonatomic,strong) UIView                     *baseLoadingView;
 @property (nonatomic,strong) UIView                     *baseBackView;
-@property (nonatomic,assign) NSTimeInterval             baseTimeDelay;
-@property (nonatomic,assign) CGFloat                    baseOnPropertyBase;
-
-//@property (nonatomic,copy) GZSAdvancedBlock             advancedBlock;
 
 @end
 
@@ -114,12 +108,7 @@
     }
 }
 
-- (void)showWaitView:(BOOL)show{
-    if (show) {
-    // 隐藏其他比如暂无数据、无网络等的提示视图
-//        [self hiddenErrorViews];
-    }
-    
+- (void)showWaitView:(BOOL)show {
     CGFloat blackWidth = MIN(WIDTHFC, HEIGHTFC) / 5;
     CGRect blackRect = CGRectMake(WIDTHFC / 2 - blackWidth / 2, HEIGHTFC / 2 - WIDTHFC / 10 - 50, blackWidth, blackWidth);
     
@@ -148,39 +137,9 @@
     }
 }
 
-//- (void)addKeyboardNotificationWithAdvancedBlock:(GZSAdvancedBlock)advancedBlock{
-//    _advancedBlock = advancedBlock;
-//    [self addKeyboardNotificationWithBaseOn:0];
-//}
-
-//- (void)addKeyboardNotificationWithBaseOn:(CGFloat)baseOn{
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keybaordActionInPropertyBase:) name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keybaordActionInPropertyBase:) name:UIKeyboardWillHideNotification object:nil];
-//    self.baseOnPropertyBase = baseOn;
-//}
-
-//- (void)keybaordActionInPropertyBase:(NSNotification *)notification{
-//    if (_advancedBlock) {
-//        _advancedBlock();
-//    }
-//
-//    if (_scrollView) {
-//        self.scrollView.contentSize = [FSKit keyboardNotificationScroll:notification baseOn:self.baseOnPropertyBase];
-//    }else if (_baseTableView){
-//        self.baseTableView.contentSize = [FSKit keyboardNotificationScroll:notification baseOn:self.baseOnPropertyBase];
-//    }
-//}
-
-//- (FSVanView *)vanView{
-//    if (!_vanView) {
-//        _vanView = [[FSVanView alloc] initWithFrame:self.view.bounds];
-//        [self.view addSubview:_vanView];
-//    }
-//    return _vanView;
-//}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // TODO 埋点，记录页面收到内存警告
     // Dispose of any resources that can be recreated.
 }
 
