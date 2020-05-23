@@ -21,6 +21,10 @@
     BOOL    _canPop;
 }
 
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self textDeisgnViews];
@@ -34,6 +38,8 @@
 
 - (void)textDeisgnViews{
     self.title = @"请输入";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keybaordActionInPropertyBase:) name:UIKeyboardWillShowNotification object:nil];
+    
     UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithTitle:@"确认" style:UIBarButtonItemStylePlain target:self action:@selector(doneAction)];
     self.navigationItem.rightBarButtonItem = bbi;
 //    [self addKeyboardNotificationWithBaseOn:0];
