@@ -44,7 +44,7 @@
     self.navigationItem.rightBarButtonItem = bbi;
 //    [self addKeyboardNotificationWithBaseOn:0];
 
-    _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, _fs_statusAndNavigatorHeight(), UIScreen.mainScreen.bounds.size.width, 0)];
+    _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, _fs_statusAndNavigatorHeight(), UIScreen.mainScreen.bounds.size.width, UIScreen.mainScreen.bounds.size.height - _fs_statusAndNavigatorHeight() - _fs_tabbarBottomMoreHeight() - 300)];
     _textView.font = [UIFont systemFontOfSize:16];
     _textView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_textView];
@@ -62,7 +62,7 @@
     NSDictionary *info = [notification userInfo];
     NSValue *value = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGSize keyboardSize = [value CGRectValue].size;
-    _textView.height = UIScreen.mainScreen.bounds.size.height - 64 - keyboardSize.height;
+    _textView.height = UIScreen.mainScreen.bounds.size.height - _fs_statusAndNavigatorHeight() - keyboardSize.height;
 }
 
 - (BOOL)navigationShouldPopOnBackButton{
