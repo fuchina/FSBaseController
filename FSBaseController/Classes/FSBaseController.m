@@ -109,10 +109,9 @@
 }
 
 - (void)showWaitView:(BOOL)show {
-    CGFloat blackWidth = MIN(WIDTHFC, HEIGHTFC) / 5;
-    CGRect blackRect = CGRectMake(WIDTHFC / 2 - blackWidth / 2, HEIGHTFC / 2 - WIDTHFC / 10 - 50, blackWidth, blackWidth);
-    
     if (show) {
+        CGFloat blackWidth = MIN(WIDTHFC, HEIGHTFC) / 5;
+        CGRect blackRect = CGRectMake(WIDTHFC / 2 - blackWidth / 2, HEIGHTFC / 2 - WIDTHFC / 10 - 50, blackWidth, blackWidth);
         if (_baseLoadingView) {
             [self.view bringSubviewToFront:_baseLoadingView];
             _baseLoadingView.frame = [UIScreen mainScreen].bounds;
@@ -133,7 +132,8 @@
             [_baseBackView addSubview:active];
         }
     }else{
-        _baseLoadingView.right = - WIDTHFC;
+        [_baseLoadingView removeFromSuperview];
+        _baseLoadingView = nil;
     }
 }
 
