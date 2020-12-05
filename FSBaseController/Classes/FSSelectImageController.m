@@ -63,7 +63,7 @@
 - (FSIPImageCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"FSIPImageCell";
     FSIPImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
-    cell.image = [UIImage imageNamed:@"weInfo_header"];
+//    cell.image = [UIImage imageNamed:@"weInfo_header"];
     return cell;
 }
 
