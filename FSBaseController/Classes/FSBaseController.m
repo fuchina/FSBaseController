@@ -74,6 +74,8 @@
 }
 
 - (void)componentWillMount {}
+- (void)renderBeforeRequest {}
+- (void)requestServerData {}
 
 - (void)tapActionBase{
     [self.view endEditing:YES];

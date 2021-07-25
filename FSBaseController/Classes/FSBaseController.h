@@ -36,4 +36,10 @@
 // UI创建入口，此时能获取安全区边际参数
 - (void)componentWillMount;
 
+// 网络请求前调用
+- (void)renderBeforeRequest;
+
+// 开始网络请求
+- (void)requestServerData;
+
 @end
