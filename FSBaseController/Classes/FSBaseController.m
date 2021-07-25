@@ -63,6 +63,11 @@
     [_backTapView addGestureRecognizer:tap];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+}
+
 - (void)tapActionBase{
     [self.view endEditing:YES];
 }
