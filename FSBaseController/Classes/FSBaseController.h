@@ -33,7 +33,7 @@
 
 - (void)showWaitView:(BOOL)show;
 
-// UI创建入口
+// UI创建入口，此时能获取安全区边际参数
 - (void)componentWillMount;
 
 @end
