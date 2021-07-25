@@ -124,8 +124,8 @@
 
 - (void)showWaitView:(BOOL)show {
     if (show) {
-        CGFloat blackWidth = MIN(WIDTHFC, HEIGHTFC) / 5;
-        CGRect blackRect = CGRectMake(WIDTHFC / 2 - blackWidth / 2, HEIGHTFC / 2 - WIDTHFC / 10 - 50, blackWidth, blackWidth);
+        CGFloat blackWidth = 80;
+        CGRect blackRect = CGRectMake(WIDTHFC / 2 - 40, HEIGHTFC / 2 - 40, blackWidth, blackWidth);
         if (_baseLoadingView) {
             [self.view bringSubviewToFront:_baseLoadingView];
             _baseLoadingView.frame = [UIScreen mainScreen].bounds;
