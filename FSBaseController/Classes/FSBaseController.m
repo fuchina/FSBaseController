@@ -19,6 +19,7 @@
     BOOL        _onceBase;
     BOOL        _onceBase_viewWillAppear;
     UIView      *_backTapView;
+    BOOL        _baseComponentAmounted;
 }
 
 - (void)dealloc{
@@ -66,7 +67,13 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
+    if (!_baseComponentAmounted) {
+        _baseComponentAmounted = YES;
+        [self componentWillMount];
+    }
 }
+
+- (void)componentWillMount {}
 
 - (void)tapActionBase{
     [self.view endEditing:YES];

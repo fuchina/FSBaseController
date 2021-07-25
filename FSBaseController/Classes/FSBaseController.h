@@ -33,4 +33,7 @@
 
 - (void)showWaitView:(BOOL)show;
 
+// UI创建入口
+- (void)componentWillMount;
+
 @end
