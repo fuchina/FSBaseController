@@ -152,6 +152,12 @@
     }
 }
 
+- (CGFloat)statusBarAndNavigationBarHeight {
+    CGRect statusFrame = [[UIApplication sharedApplication] statusBarFrame];
+    CGRect navRect = self.navigationController.navigationBar.frame;
+    return statusFrame.size.height + navRect.size.height;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // TODO 埋点，记录页面收到内存警告
