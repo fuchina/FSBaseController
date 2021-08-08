@@ -65,12 +65,28 @@
     [_backTapView addGestureRecognizer:tap];
 }
 
+- (Class)baseManagerClass {
+    return nil;
+}
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    
     if (!_baseComponentAmounted) {
         _baseComponentAmounted = YES;
-        [self componentWillMount];
+        
+        Class cls = [self baseManagerClass];
+        if (cls) {
+            __block id baseMngr = nil;
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                baseMngr = [[cls alloc] init];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.manager = baseMngr;
+                    [self componentWillMount];
+                });
+            });
+        } else {
+            [self componentWillMount];
+        }
     }
 }
 

@@ -15,6 +15,7 @@
 #import "FSKit.h"
 #import "FSTrack.h"
 #import "FSApp.h"
+#import "FSBaseManager.h"
 
 #define FS_StatusBar_Height         (_fs_isIPhoneX() ? 44 : 20)
 #define FS_TabBar_Height            ((_fs_isIPhoneX()) ? 83 : 49)
@@ -30,6 +31,10 @@
 @property (nonatomic,assign) BOOL               letStatusBarWhite;  // 把整个App都变了
 
 @property (nonatomic,strong) FSTapScrollView    *scrollView;
+
+// manager继承自FSBaseManager，在子线程中执行
+- (Class)baseManagerClass;
+@property (nonatomic, strong) FSBaseManager     *manager;
 
 - (void)showWaitView:(BOOL)show;
 
