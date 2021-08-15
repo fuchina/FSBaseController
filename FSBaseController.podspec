@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/fuchina/FSBaseController.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.2'
-  s.source_files = 'FSBaseController/Classes/*'
+  s.source_files = 'FSBaseController/Classes/**/*'
   
   s.dependency   'FSUIKit'
   s.dependency   'FSTrack'
