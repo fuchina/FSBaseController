@@ -15,10 +15,10 @@
 
 @implementation FSSelectSectionController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)componentWillMount {
+    [super componentWillMount];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _fs_statusAndNavigatorHeight(), WIDTHFC, HEIGHTFC - _fs_statusAndNavigatorHeight()) style:UITableViewStyleGrouped];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDTHFC, HEIGHTFC) style:UITableViewStyleGrouped];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.estimatedSectionHeaderHeight = 0;

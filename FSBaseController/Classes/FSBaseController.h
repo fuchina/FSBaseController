@@ -17,9 +17,6 @@
 #import "FSApp.h"
 #import "FSBaseManager.h"
 
-#define FS_StatusBar_Height         (_fs_isIPhoneX() ? 44 : 20)
-#define FS_TabBar_Height            ((_fs_isIPhoneX()) ? 83 : 49)
-
 @interface FSBaseController : UIViewController
 
 /*

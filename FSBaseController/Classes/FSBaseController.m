@@ -101,7 +101,7 @@
 - (FSTapScrollView *)scrollView{
     if (!_scrollView) {
         // 纵坐标即使为0，子视图也是从导航栏下面开始布局
-        _scrollView = [[FSTapScrollView alloc] initWithFrame:CGRectMake(0, _fs_statusAndNavigatorHeight(), WIDTHFC, HEIGHTFC - _fs_statusAndNavigatorHeight())];
+        _scrollView = [[FSTapScrollView alloc] initWithFrame:CGRectMake(0, self.view.safeAreaInsets_fs.top, WIDTHFC, HEIGHTFC - self.view.safeAreaInsets_fs.top)];
         _scrollView.contentSize = CGSizeMake(WIDTHFC, HEIGHTFC + 10);
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.delaysContentTouches = NO;

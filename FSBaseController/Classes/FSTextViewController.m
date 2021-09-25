@@ -35,8 +35,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)componentWillMount {
+    [super componentWillMount];
     [self textDeisgnViews];
 }
 
@@ -53,7 +53,7 @@
     UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithTitle:@"确认" style:UIBarButtonItemStylePlain target:self action:@selector(doneAction)];
     self.navigationItem.rightBarButtonItem = bbi;
     
-    _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, _fs_statusAndNavigatorHeight(), UIScreen.mainScreen.bounds.size.width, UIScreen.mainScreen.bounds.size.height - _fs_statusAndNavigatorHeight() - _fs_tabbarBottomMoreHeight() - 300)];
+    _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, self.view.safeAreaInsets_fs.top, UIScreen.mainScreen.bounds.size.width, UIScreen.mainScreen.bounds.size.height - 300)];
     _textView.font = [UIFont systemFontOfSize:16];
     _textView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_textView];
@@ -71,7 +71,7 @@
     NSDictionary *info = [notification userInfo];
     NSValue *value = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGSize keyboardSize = [value CGRectValue].size;
-    _textView.height = UIScreen.mainScreen.bounds.size.height - _fs_statusAndNavigatorHeight() - keyboardSize.height;
+    _textView.height = UIScreen.mainScreen.bounds.size.height - keyboardSize.height;
 }
 
 - (BOOL)navigationShouldPopOnBackButton{
