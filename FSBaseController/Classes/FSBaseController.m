@@ -54,6 +54,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    [self fitIOS15];
     
     [FSTrack event:NSStringFromClass([self class])];
     self.view.backgroundColor = RGBCOLOR(245, 245, 245, 1);
@@ -63,6 +64,28 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActionBase)];
     [_backTapView addGestureRecognizer:tap];
+}
+
+- (void)fitIOS15 {
+    if (@available(iOS 15.0, *)) {
+        // UINavigationBar
+        UINavigationBarAppearance *navigationBarAppearance = [[UINavigationBarAppearance alloc] init];
+        navigationBarAppearance.backgroundColor = UIColor.whiteColor;
+        self.navigationController.navigationBar.scrollEdgeAppearance = navigationBarAppearance;
+        self.navigationController.navigationBar.standardAppearance = navigationBarAppearance;
+        
+        // UIToolbar
+        UIToolbarAppearance *toolBarAppearance = [[UIToolbarAppearance alloc] init];
+        toolBarAppearance.backgroundColor = UIColor.whiteColor;
+        self.navigationController.toolbar.scrollEdgeAppearance = toolBarAppearance;
+        self.navigationController.toolbar.standardAppearance = toolBarAppearance;
+        
+        // UITabBar
+        UITabBarAppearance *tabBarAppearance = [[UITabBarAppearance alloc] init];
+        toolBarAppearance.backgroundColor = UIColor.whiteColor;
+        self.tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance;
+        self.tabBarController.tabBar.standardAppearance = tabBarAppearance;
+    }
 }
 
 - (Class)baseManagerClass {
