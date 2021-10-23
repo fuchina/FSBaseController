@@ -77,13 +77,17 @@
         // UIToolbar
         UIToolbarAppearance *toolBarAppearance = [[UIToolbarAppearance alloc] init];
         toolBarAppearance.backgroundColor = UIColor.whiteColor;
+#if  __IPHONE_OS_VERSION_MAX_ALLOWED >= 150000
         self.navigationController.toolbar.scrollEdgeAppearance = toolBarAppearance;
+#endif
         self.navigationController.toolbar.standardAppearance = toolBarAppearance;
         
         // UITabBar
         UITabBarAppearance *tabBarAppearance = [[UITabBarAppearance alloc] init];
         toolBarAppearance.backgroundColor = UIColor.whiteColor;
+#if  __IPHONE_OS_VERSION_MAX_ALLOWED >= 150000
         self.tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance;
+#endif
         self.tabBarController.tabBar.standardAppearance = tabBarAppearance;
     }
 }
