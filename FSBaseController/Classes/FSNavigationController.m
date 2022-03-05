@@ -8,15 +8,7 @@
 
 #import "FSNavigationController.h"
 
-@interface FSNavigationController ()
-
-@end
-
 @implementation FSNavigationController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.topViewController) {

@@ -48,7 +48,7 @@
         _onceBase = YES;
         
         self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:FSKit.appName style:UIBarButtonItemStylePlain target:nil action:nil];
-        self.navigationController.navigationBar.topItem.backBarButtonItem.tintColor = UIColor.blackColor;
+        self.navigationController.navigationBar.topItem.backBarButtonItem.tintColor = self.view.tintColor;
     }
 }
 
