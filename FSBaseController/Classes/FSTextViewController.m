@@ -7,7 +7,6 @@
 //
 
 #import "FSTextViewController.h"
-#import "UIViewController+BackButtonHandler.h"
 #import "UIViewExt.h"
 #import "FSApp.h"
 

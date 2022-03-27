@@ -8,6 +8,12 @@
 
 #import "FSNavigationController.h"
 
+@protocol UINavigationControllerPopDelegate <NSObject>
+
+- (BOOL)navigationShouldPopOnBackButton;
+
+@end
+
 @implementation FSNavigationController
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
@@ -16,6 +22,20 @@
     }
     
     [super pushViewController:viewController animated:animated];
+}
+
+- (nullable UIViewController *)popViewControllerAnimated:(BOOL)animated {
+    UIViewController *topController = self.topViewController;
+    if ([topController respondsToSelector:@selector(navigationShouldPopOnBackButton)]) {
+        UIViewController<UINavigationControllerPopDelegate> *vc = (UIViewController<UINavigationControllerPopDelegate> *)topController;
+        BOOL canPop = [vc navigationShouldPopOnBackButton];
+        if (canPop) {
+            return [super popViewControllerAnimated:animated];
+        } else {
+            return nil;
+        }
+    }
+    return [super popViewControllerAnimated:animated];
 }
 
 - (void)didReceiveMemoryWarning {
