@@ -14,6 +14,10 @@
 
 @end
 
+@interface FSNavigationController ()<UINavigationBarDelegate>
+
+@end
+
 @implementation FSNavigationController
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
@@ -24,18 +28,14 @@
     [super pushViewController:viewController animated:animated];
 }
 
-- (nullable UIViewController *)popViewControllerAnimated:(BOOL)animated {
+- (BOOL)navigationBar:(UINavigationBar *)navigationBar shouldPopItem:(UINavigationItem *)item {
     UIViewController *topController = self.topViewController;
     if ([topController respondsToSelector:@selector(navigationShouldPopOnBackButton)]) {
         UIViewController<UINavigationControllerPopDelegate> *vc = (UIViewController<UINavigationControllerPopDelegate> *)topController;
         BOOL canPop = [vc navigationShouldPopOnBackButton];
-        if (canPop) {
-            return [super popViewControllerAnimated:animated];
-        } else {
-            return nil;
-        }
+        return canPop;
     }
-    return [super popViewControllerAnimated:animated];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
