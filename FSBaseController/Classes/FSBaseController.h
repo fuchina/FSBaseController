@@ -44,7 +44,4 @@
 // 开始网络请求
 - (void)requestServerData;
 
-// 状态栏和导航栏高度
-- (CGFloat)statusBarAndNavigationBarHeight;
-
 @end
