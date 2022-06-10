@@ -64,10 +64,6 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActionBase)];
     [_backTapView addGestureRecognizer:tap];
-    
-#if TARGET_IPHONE_SIMULATOR
-    NSLog(@"%@", self.class);
-#endif
 }
 
 - (void)fitIOS15 {
