@@ -19,14 +19,6 @@
 
 @interface FSBaseController : UIViewController
 
-/*
-    这个方法的作用会把整个App的状态栏都改变。
-    另一种方法：@property(nonatomic, readonly) UIStatusBarStyle preferredStatusBarStyle NS_AVAILABLE_IOS(7_0) __TVOS_PROHIBITED; // Defaults to UIStatusBarStyleDefault
- 如果UIViewController 不在导航控制器中，这个方法才有效；如果在导航控制器中，需要在导航控制器中调用这个方法，UIViewController中调用这个方法    self.navigationController.navigationBar.barStyle = UIBarStyleBlack来改变。
-
- */
-@property (nonatomic,assign) BOOL               letStatusBarWhite;  // 把整个App都变了
-
 @property (nonatomic,strong) FSTapScrollView    *scrollView;
 
 // manager继承自FSBaseManager，在子线程中执行

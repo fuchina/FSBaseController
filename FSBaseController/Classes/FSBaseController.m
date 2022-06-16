@@ -145,25 +145,8 @@
     return _scrollView;
 }
 
-- (void)setLetStatusBarWhite:(BOOL)letStatusBarWhite{
-    _letStatusBarWhite = letStatusBarWhite;
-    if (letStatusBarWhite) {
-        if (IOSGE(7)) {
-            [self.navigationController.navigationBar setTranslucent:YES];
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-        } else {
-            self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-            self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0 green:130/255.0 blue:200/255.0 alpha:1];
-        }
-    }else{
-        if (IOSGE(7)) {
-            [self.navigationController.navigationBar setTranslucent:YES];
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
-        } else {
-            self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-            self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0 green:130/255.0 blue:200/255.0 alpha:1];
-        }
-    }
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)showWaitView:(BOOL)show {
