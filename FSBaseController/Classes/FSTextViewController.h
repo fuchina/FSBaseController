@@ -11,6 +11,6 @@
 @interface FSTextViewController : FSBaseController
 
 @property (nonatomic,copy) NSString *text;
-@property (nonatomic,copy) void (^callback)(FSTextViewController *bVC,NSString *bText);
+@property (nonatomic,copy) void (^completion)(FSTextViewController *bVC,NSString *bText);
 
 @end

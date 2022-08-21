@@ -40,8 +40,8 @@
 }
 
 - (void)doneAction{
-    if (self.callback) {
-        self.callback(self, _textView.text);
+    if (self.completion) {
+        self.completion(self, _textView.text);
     }
 }
 
