@@ -54,7 +54,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [self fitIOS15];
+//    [self fitIOS15];  不需要适配
     
     [FSTrack event:NSStringFromClass([self class])];
     self.view.backgroundColor = RGBCOLOR(245, 245, 245, 1);
@@ -66,31 +66,31 @@
     [_backTapView addGestureRecognizer:tap];
 }
 
-- (void)fitIOS15 {
-    if (@available(iOS 15.0, *)) {
-        // UINavigationBar
-        UINavigationBarAppearance *navigationBarAppearance = [[UINavigationBarAppearance alloc] init];
-        navigationBarAppearance.backgroundColor = UIColor.whiteColor;
-        self.navigationController.navigationBar.scrollEdgeAppearance = navigationBarAppearance;
-        self.navigationController.navigationBar.standardAppearance = navigationBarAppearance;
-        
-        // UIToolbar
-        UIToolbarAppearance *toolBarAppearance = [[UIToolbarAppearance alloc] init];
-        toolBarAppearance.backgroundColor = UIColor.whiteColor;
-#if  __IPHONE_OS_VERSION_MAX_ALLOWED >= 150000
-        self.navigationController.toolbar.scrollEdgeAppearance = toolBarAppearance;
-#endif
-        self.navigationController.toolbar.standardAppearance = toolBarAppearance;
-        
-        // UITabBar
-        UITabBarAppearance *tabBarAppearance = [[UITabBarAppearance alloc] init];
-        toolBarAppearance.backgroundColor = UIColor.whiteColor;
-#if  __IPHONE_OS_VERSION_MAX_ALLOWED >= 150000
-        self.tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance;
-#endif
-        self.tabBarController.tabBar.standardAppearance = tabBarAppearance;
-    }
-}
+//- (void)fitIOS15 {
+//    if (@available(iOS 15.0, *)) {
+//        // UINavigationBar
+//        UINavigationBarAppearance *navigationBarAppearance = [[UINavigationBarAppearance alloc] init];
+//        navigationBarAppearance.backgroundColor = UIColor.whiteColor;
+//        self.navigationController.navigationBar.scrollEdgeAppearance = navigationBarAppearance;
+//        self.navigationController.navigationBar.standardAppearance = navigationBarAppearance;
+//
+//        // UIToolbar
+//        UIToolbarAppearance *toolBarAppearance = [[UIToolbarAppearance alloc] init];
+//        toolBarAppearance.backgroundColor = UIColor.whiteColor;
+//#if  __IPHONE_OS_VERSION_MAX_ALLOWED >= 150000
+//        self.navigationController.toolbar.scrollEdgeAppearance = toolBarAppearance;
+//#endif
+//        self.navigationController.toolbar.standardAppearance = toolBarAppearance;
+//
+//        // UITabBar
+//        UITabBarAppearance *tabBarAppearance = [[UITabBarAppearance alloc] init];
+//        toolBarAppearance.backgroundColor = UIColor.whiteColor;
+//#if  __IPHONE_OS_VERSION_MAX_ALLOWED >= 150000
+//        self.tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance;
+//#endif
+//        self.tabBarController.tabBar.standardAppearance = tabBarAppearance;
+//    }
+//}
 
 - (Class)baseManagerClass {
     return nil;
