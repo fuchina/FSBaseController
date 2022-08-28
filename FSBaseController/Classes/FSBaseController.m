@@ -125,13 +125,16 @@
     [self.view endEditing:YES];
 }
 
-- (FSTapScrollView *)scrollView{
+- (FSTapScrollView *)scrollView {
     if (!_scrollView) {
         // 纵坐标即使为0，子视图也是从导航栏下面开始布局
         _scrollView = [[FSTapScrollView alloc] initWithFrame:CGRectMake(0, self.view.safeAreaInsets_fs.top, WIDTHFC, HEIGHTFC - self.view.safeAreaInsets_fs.top)];
         _scrollView.contentSize = CGSizeMake(WIDTHFC, HEIGHTFC + 10);
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.delaysContentTouches = NO;
+        if (@available(iOS 11.0, *)) {
+            _scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
         if (_backTapView) {
             [self.view insertSubview:_scrollView aboveSubview:_backTapView];
         }else{
