@@ -36,4 +36,9 @@
 // 开始网络请求
 - (void)requestServerData;
 
+/**
+ *  在有下拉刷新的app里，可以使用
+ */
+- (void)fitIOS15;
+
 @end
