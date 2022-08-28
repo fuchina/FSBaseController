@@ -32,6 +32,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+static BOOL fitIOS15 = NO;
++ (void)fitIOS15 {
+    fitIOS15 = YES;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (!_onceBase_viewWillAppear) {
@@ -54,6 +59,9 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    if (fitIOS15) {
+        [self fitIOS15];
+    }
     
     [FSTrack event:NSStringFromClass([self class])];
     self.view.backgroundColor = RGBCOLOR(245, 245, 245, 1);

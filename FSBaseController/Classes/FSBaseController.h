@@ -19,6 +19,8 @@
 
 @interface FSBaseController : UIViewController
 
++ (void)fitIOS15;
+
 @property (nonatomic,strong) FSTapScrollView    *scrollView;
 
 // manager继承自FSBaseManager，在子线程中执行
