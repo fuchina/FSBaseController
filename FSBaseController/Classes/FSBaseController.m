@@ -139,7 +139,7 @@ static BOOL fitIOS15 = NO;
         _scrollView = [[FSTapScrollView alloc] initWithFrame:CGRectMake(0, self.view.safeAreaInsets_fs.top, WIDTHFC, HEIGHTFC - self.view.safeAreaInsets_fs.top)];
         _scrollView.contentSize = CGSizeMake(WIDTHFC, HEIGHTFC + 10);
         _scrollView.showsVerticalScrollIndicator = NO;
-        _scrollView.delaysContentTouches = NO;
+//        _scrollView.delaysContentTouches = NO;  // 是干嘛的？
         if (@available(iOS 11.0, *)) {
             _scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
