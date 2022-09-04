@@ -64,7 +64,7 @@ static BOOL fitIOS15 = NO;
     }
     
     [FSTrack event:NSStringFromClass([self class])];
-    CGFloat rgb = 250 / 255.0;
+    CGFloat rgb = (250 - 5) / 255.0;
     self.view.backgroundColor = [UIColor colorWithRed:rgb green:rgb blue:rgb alpha:1];
     
     _backTapView = [FSViewManager viewWithFrame:self.view.bounds backColor:nil];
