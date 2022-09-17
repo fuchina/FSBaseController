@@ -189,6 +189,13 @@ static BOOL fitIOS15 = NO;
     }
 }
 
+- (UIView *)fs_bottomView {
+    CGFloat h = self.view.safeAreaInsets_fs.bottom + 45;
+    FSView *bottomView = [[FSView alloc] initWithFrame:CGRectMake(0, HEIGHTFC - h, WIDTHFC, h)];
+    bottomView.backgroundColor = UIColor.whiteColor;
+    return bottomView;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // TODO 埋点，记录页面收到内存警告

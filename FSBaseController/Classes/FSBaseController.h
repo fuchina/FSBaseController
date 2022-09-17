@@ -16,6 +16,7 @@
 #import "FSTrack.h"
 #import "FSApp.h"
 #import "FSBaseManager.h"
+#import "FSView.h"
 
 @interface FSBaseController : UIViewController
 
@@ -42,5 +43,10 @@
  *  在有下拉刷新的app里，可以使用
  */
 - (void)fitIOS15;
+
+/**
+ *  底部视图
+ */
+- (FSView *)fs_bottomView;
 
 @end
