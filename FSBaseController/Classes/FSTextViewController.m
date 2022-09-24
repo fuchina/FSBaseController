@@ -7,7 +7,6 @@
 //
 
 #import "FSTextViewController.h"
-#import "UIViewExt.h"
 #import "FSApp.h"
 
 @interface FSTextViewController ()

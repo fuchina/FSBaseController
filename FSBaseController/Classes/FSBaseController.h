@@ -10,13 +10,13 @@
 #import "FSNavigationController.h"
 #import "FSTapScrollView.h"
 #import "FSViewManager.h"
-#import "UIViewExt.h"
 #import "FuSoft.h"
 #import "FSKit.h"
 #import "FSTrack.h"
 #import "FSApp.h"
 #import "FSBaseManager.h"
 #import "FSView.h"
+#import "FSUIAdapter.h"
 
 @interface FSBaseController : UIViewController
 
