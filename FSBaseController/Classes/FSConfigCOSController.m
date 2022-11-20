@@ -12,6 +12,9 @@
 #import "FSToast.h"
 #import "FSCryptor.h"
 #import "FSCryptorSupport.h"
+#import "FSOSS.h"
+
+static NSString *_appCfg_cosConfig          = @"cosConfig";                     // cos配置（腾讯云）
 
 static  NSString        *_key_appid         =        @"appid";
 static  NSString        *_key_region        =        @"region";
@@ -203,6 +206,27 @@ static  NSString        *_key_bucket        =        @"bucket";
     };
     [self.view addSubview:cell];
     return cell;
+}
+
++ (BOOL)configOSS:(UIViewController *)controller {
+    NSString *pwd = FSCryptorSupport.localUserDefaultsCorePassword;
+    NSString *ciphertext = [FSAppConfig objectForKey:_appCfg_cosConfig];
+    NSString *cos = [FSCryptor aes256DecryptString:ciphertext password:pwd];
+    NSDictionary *params = [FSKit objectFromJSonstring:cos];
+    if (!([params isKindOfClass:NSDictionary.class] && params.count == 5)) {
+        [FSUIKit alert:(UIAlertControllerStyleActionSheet) controller:controller title:@"重要提示!" message:@"需要去【设置 - 配置COS】中配置好COS数据才可以继续操作" actionTitles:@[@"去配置"] styles:@[@(UIAlertActionStyleDefault)] handler:^(FSAlertAction *action) {
+            [FSKit pushToViewControllerWithClass:@"FSConfigCOSController" navigationController:controller.navigationController param:nil configBlock:nil];
+        }];
+        return NO;
+    }
+    
+    NSString *appid = [params objectForKey:_key_appid];
+    NSString *region = [params objectForKey:_key_region];
+    NSString *secretid = [params objectForKey:_key_secretid];
+    NSString *secretkey = [params objectForKey:_key_secretkey];
+    NSString *bucket = [params objectForKey:_key_bucket];
+    [FSOSS configAppID:appid regionName:region secretID:secretid secretKey:secretkey bucket:bucket];
+    return YES;
 }
 
 /*
