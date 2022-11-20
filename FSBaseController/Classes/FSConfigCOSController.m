@@ -14,7 +14,6 @@
 #import "FSCryptorSupport.h"
 #import "FSOSS.h"
 
-static NSString *_appCfg_cosConfig          = @"cosConfig";                     // cos配置（腾讯云）
 
 static  NSString        *_key_appid         =        @"appid";
 static  NSString        *_key_region        =        @"region";
