@@ -42,7 +42,7 @@ static  NSString        *_key_bucket        =        @"bucket";
 }
 
 - (void)cosHandleDatas {
-    NSString *pwd = FSCryptorSupport.localUserDefaultsCorePassword;
+    NSString *pwd = [self.class pwd];
     NSString *ciphertext = [FSAppConfig objectForKey:_appCfg_cosConfig];
     NSString *cos = [FSCryptor aes256DecryptString:ciphertext password:pwd];
     NSDictionary *params = [FSKit objectFromJSonstring:cos];
@@ -181,7 +181,7 @@ static  NSString        *_key_bucket        =        @"bucket";
         [FSToast show:@"请配置好所有数据"];
         return;
     }
-    NSString *pwd = FSCryptorSupport.localUserDefaultsCorePassword;
+    NSString *pwd = [self.class pwd];
     NSString *cos = [FSKit jsonStringWithObject:self.params];
     NSString *ciphertext = [FSCryptor aes256EncryptString:cos password:pwd];
     NSString *error = [FSAppConfig saveObject:ciphertext forKey:_appCfg_cosConfig];
@@ -191,6 +191,14 @@ static  NSString        *_key_bucket        =        @"bucket";
         return;
     }
     [self.navigationController popViewControllerAnimated:YES];
+}
+
++ (NSString *)pwd {
+    NSString *pwd = FSCryptorSupport.localUserDefaultsCorePassword;
+    if (!pwd) {
+        pwd = NSStringFromClass(self.class);
+    }
+    return pwd;
 }
 
 - (FSTapCell *)cellWithText:(NSString *)text detailText:(NSString *)detailText top:(CGFloat)top block:(void(^)(FSTapCell *cell))click {
@@ -209,7 +217,7 @@ static  NSString        *_key_bucket        =        @"bucket";
 }
 
 + (BOOL)configOSS:(UIViewController *)controller {
-    NSString *pwd = FSCryptorSupport.localUserDefaultsCorePassword;
+    NSString *pwd = [self pwd];
     NSString *ciphertext = [FSAppConfig objectForKey:_appCfg_cosConfig];
     NSString *cos = [FSCryptor aes256DecryptString:ciphertext password:pwd];
     NSDictionary *params = [FSKit objectFromJSonstring:cos];
