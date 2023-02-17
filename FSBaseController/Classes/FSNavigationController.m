@@ -22,7 +22,7 @@
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.topViewController) {
-        viewController.hidesBottomBarWhenPushed = YES; //viewController是将要被push的控制器
+        viewController.hidesBottomBarWhenPushed = YES;          //viewController是将要被push的控制器
     }
     
     [super pushViewController:viewController animated:animated];
@@ -36,6 +36,18 @@
         return canPop;
     }
     return YES;
+}
+
+- (void)setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated {
+    if (self.topViewController) {
+        for (UIViewController *viewController in viewControllers) {
+            if (viewController != self.topViewController) {             // rootController不要让tabbar隐藏，不然有bug，恢复不了
+                viewController.hidesBottomBarWhenPushed = YES;          // viewController是将要被push的控制器
+            }
+        }
+    }
+    
+    [super setViewControllers:viewControllers animated:animated];
 }
 
 - (void)didReceiveMemoryWarning {
