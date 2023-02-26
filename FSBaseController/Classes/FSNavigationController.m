@@ -29,13 +29,17 @@
 }
 
 - (BOOL)navigationBar:(UINavigationBar *)navigationBar shouldPopItem:(UINavigationItem *)item {
+    BOOL canPop = YES;
     UIViewController *topController = self.topViewController;
     if ([topController respondsToSelector:@selector(navigationShouldPopOnBackButton)]) {
         UIViewController<UINavigationControllerPopDelegate> *vc = (UIViewController<UINavigationControllerPopDelegate> *)topController;
-        BOOL canPop = [vc navigationShouldPopOnBackButton];
-        return canPop;
+        canPop = [vc navigationShouldPopOnBackButton];
     }
-    return YES;
+    
+    if (canPop) {
+        [self popViewControllerAnimated:YES];
+    }
+    return canPop;
 }
 
 - (void)setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated {
