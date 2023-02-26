@@ -36,9 +36,6 @@
         canPop = [vc navigationShouldPopOnBackButton];
     }
     
-    if (canPop) {
-        [self popViewControllerAnimated:YES];
-    }
     return canPop;
 }
 
