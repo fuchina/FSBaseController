@@ -47,17 +47,17 @@ static BOOL fitIOS15 = NO;
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (!_onceBase) {
         _onceBase = YES;
-        
+                
         self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:FSKit.appName style:UIBarButtonItemStylePlain target:nil action:nil];
         self.navigationController.navigationBar.topItem.backBarButtonItem.tintColor = self.view.tintColor;
     }
 }
 
-- (void)viewDidLoad{
+- (void)viewDidLoad {
     [super viewDidLoad];
     if (fitIOS15) {
         [self fitIOS15];
