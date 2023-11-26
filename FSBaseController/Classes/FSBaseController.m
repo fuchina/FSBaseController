@@ -152,6 +152,10 @@ static BOOL fitIOS15 = NO;
         _scrollView.click = ^(FSTapScrollView *view) {
             [this tapActionBase];
         };
+        
+        if (self.navigationController) {
+            [FSKit fitScrollViewOperate:_scrollView navigationController:self.navigationController];
+        }
     }
     return _scrollView;
 }
