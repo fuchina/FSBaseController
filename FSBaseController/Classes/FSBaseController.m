@@ -127,7 +127,7 @@ static BOOL fitIOS15 = NO;
 
 - (void)componentWillMount {}
 - (void)beforeHandleDatas {}
-- (void)handleDatas {}
+- (void)baseHandleDatas {}
 
 - (void)tapActionBase{
     [self.view endEditing:YES];

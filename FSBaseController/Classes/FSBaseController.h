@@ -37,7 +37,7 @@
 - (void)beforeHandleDatas;
 
 // 开始网络请求
-- (void)handleDatas;
+- (void)baseHandleDatas;
 
 /**
  *  在有下拉刷新的app里，可以使用
