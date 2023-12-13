@@ -34,10 +34,10 @@
 - (void)componentWillMount;
 
 // 网络请求前调用
-- (void)renderBeforeRequest;
+- (void)beforeHandleDatas;
 
 // 开始网络请求
-- (void)requestServerData;
+- (void)handleDatas;
 
 /**
  *  在有下拉刷新的app里，可以使用
