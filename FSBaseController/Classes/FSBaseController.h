@@ -33,11 +33,11 @@
 // UI创建入口，此时能获取安全区边际参数
 - (void)componentWillMount;
 
-// 网络请求前调用
-- (void)beforeHandleDatas;
-
 // 开始网络请求
 - (void)baseHandleDatas;
+
+// 开始渲染UI
+- (void)baseDesignViews;
 
 /**
  *  在有下拉刷新的app里，可以使用
