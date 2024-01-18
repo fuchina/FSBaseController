@@ -14,7 +14,6 @@
 #import "FSKit.h"
 #import "FSTrack.h"
 #import "FSApp.h"
-#import "FSBaseManager.h"
 #import "FSView.h"
 #import "FSUIAdapter.h"
 
@@ -23,10 +22,6 @@
 + (void)fitIOS15;
 
 @property (nonatomic,strong) FSTapScrollView    *scrollView;
-
-// manager继承自FSBaseManager，在子线程中执行
-- (Class)baseManagerClass;
-@property (nonatomic, strong) FSBaseManager     *manager;
 
 - (void)showWaitView:(BOOL)show;
 

@@ -15,14 +15,14 @@
 
 @end
 
-@implementation FSBaseController{
+@implementation FSBaseController {
     BOOL        _onceBase;
     BOOL        _onceBase_viewWillAppear;
     UIView      *_backTapView;
     BOOL        _baseComponentAmounted;
 }
 
-- (void)dealloc{
+- (void)dealloc {
 #if TARGET_IPHONE_SIMULATOR
     NSString *title = [[NSString alloc] initWithFormat:@"%@ dealloc",NSStringFromClass(self.class)];
     NSLog(@"%@",title);
@@ -63,7 +63,8 @@ static BOOL fitIOS15 = NO;
         [self fitIOS15];
     }
     
-    [FSTrack event:NSStringFromClass([self class])];
+//    [FSTrack event:NSStringFromClass([self class])];
+    
     CGFloat rgb = (250 - 5) / 255.0;
     self.view.backgroundColor = [UIColor colorWithRed:rgb green:rgb blue:rgb alpha:1];
     
@@ -100,32 +101,21 @@ static BOOL fitIOS15 = NO;
     }
 }
 
-- (Class)baseManagerClass {
-    return nil;
-}
-
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+    
     if (!_baseComponentAmounted) {
         _baseComponentAmounted = YES;
-        
-        Class cls = [self baseManagerClass];
-        if (cls) {
-            __block id baseMngr = nil;
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                baseMngr = [[cls alloc] init];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.manager = baseMngr;
-                    [self componentWillMount];
-                });
-            });
-        } else {
-            [self componentWillMount];
-        }
+        [self componentWillMount];
     }
 }
 
-- (void)componentWillMount {}
+- (void)componentWillMount {
+    if (self.navigationController) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    }
+}
+
 - (void)baseHandleDatas {}
 - (void)baseDesignViews {}
 
@@ -187,7 +177,7 @@ static BOOL fitIOS15 = NO;
             [active startAnimating];
             [_baseBackView addSubview:active];
         }
-    }else{
+    } else {
         [_baseLoadingView removeFromSuperview];
         _baseLoadingView = nil;
     }
