@@ -37,6 +37,24 @@ static BOOL fitIOS15 = NO;
     fitIOS15 = YES;
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleOrientationDidChangeNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
+    }
+    return self;
+}
+
+- (void)handleOrientationDidChangeNotification:(NSNotification *)notification {
+    UIApplication *app = notification.object;
+    if (![app isKindOfClass:UIApplication.class]) {
+        return;
+    }
+    [self baseHandleChangeStatusBarOrientation:app.statusBarOrientation];
+}
+
+- (void)baseHandleChangeStatusBarOrientation:(UIInterfaceOrientation)orientation {}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (!_onceBase_viewWillAppear) {
