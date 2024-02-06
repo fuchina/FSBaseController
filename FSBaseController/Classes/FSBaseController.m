@@ -37,12 +37,8 @@ static BOOL fitIOS15 = NO;
     fitIOS15 = YES;
 }
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleOrientationDidChangeNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
-    }
-    return self;
+- (void)baseAddDidChangeStatusBarOrientationNotification {
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleOrientationDidChangeNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
 }
 
 - (void)handleOrientationDidChangeNotification:(NSNotification *)notification {

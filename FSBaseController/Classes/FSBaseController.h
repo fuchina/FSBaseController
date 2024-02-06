@@ -45,8 +45,9 @@
 - (FSView *)fs_bottomView;
 
 /**
- *  状态栏方向改变回调
+ *  状态栏方向监听及回调
  */
+- (void)baseAddDidChangeStatusBarOrientationNotification;
 - (void)baseHandleChangeStatusBarOrientation:(UIInterfaceOrientation)orientation;
 
 @end
