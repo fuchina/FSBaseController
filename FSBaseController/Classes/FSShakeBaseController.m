@@ -42,8 +42,7 @@
     return;
 }
 
-- (void)shakeEndActionFromShakeBase{
-}
+- (void)shakeEndActionFromShakeBase{}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
