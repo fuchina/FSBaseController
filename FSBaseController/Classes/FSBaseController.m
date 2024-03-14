@@ -24,8 +24,7 @@
 
 - (void)dealloc {
 #if TARGET_IPHONE_SIMULATOR
-    NSString *title = [[NSString alloc] initWithFormat:@"%@ dealloc",NSStringFromClass(self.class)];
-    NSLog(@"%@",title);
+    NSLog(@"%@ dealloc", self.class);
 #else
 #endif
     
