@@ -24,7 +24,7 @@
 
 - (void)dealloc {
 #if TARGET_IPHONE_SIMULATOR
-    NSLog(@"\n\n%@ dealloc\n\n", self.class);
+    NSLog(@"\n%@ dealloc\n", self.class);
 #else
 #endif
     
