@@ -50,4 +50,9 @@
 - (void)baseAddDidChangeStatusBarOrientationNotification;
 - (void)baseHandleChangeStatusBarOrientation:(UIInterfaceOrientation)orientation;
 
+/**
+ *  tableView cell 反选效果
+ */
+- (void)configCellDeselectData:(NSIndexPath *)indexPath tableView:(UITableView *)tableView;
+
 @end

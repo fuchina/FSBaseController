@@ -10,8 +10,11 @@
 
 @interface FSBaseController ()
 
-@property (nonatomic,strong) UIView                     *baseLoadingView;
-@property (nonatomic,strong) UIView                     *baseBackView;
+@property (nonatomic, strong) UIView                     *baseLoadingView;
+@property (nonatomic, strong) UIView                     *baseBackView;
+
+@property (nonatomic, weak)   NSIndexPath                *cellDeselectIndexPath;
+@property (nonatomic, weak)   UITableView                *cellDeselectView;
 
 @end
 
@@ -29,6 +32,11 @@
 #endif
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)configCellDeselectData:(NSIndexPath *)indexPath tableView:(UITableView *)tableView {
+    _cellDeselectIndexPath = indexPath;
+    _cellDeselectView = tableView;
 }
 
 static BOOL fitIOS15 = NO;
@@ -67,6 +75,10 @@ static BOOL fitIOS15 = NO;
                 
         self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:FSKit.appName style:UIBarButtonItemStylePlain target:nil action:nil];
         self.navigationController.navigationBar.topItem.backBarButtonItem.tintColor = self.view.tintColor;
+    }
+    
+    if (_cellDeselectIndexPath && _cellDeselectView) {
+        [_cellDeselectView deselectRowAtIndexPath: self.cellDeselectIndexPath animated: YES];
     }
 }
 
