@@ -53,6 +53,6 @@
 /**
  *  tableView cell 反选效果
  */
-- (void)configCellDeselectData:(NSIndexPath *)indexPath tableView:(UITableView *)tableView;
+- (void)configCellDeselectView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 
 @end

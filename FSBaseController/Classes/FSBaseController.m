@@ -34,7 +34,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)configCellDeselectData:(NSIndexPath *)indexPath tableView:(UITableView *)tableView {
+- (void)configCellDeselectView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
     _cellDeselectIndexPath = indexPath;
     _cellDeselectView = tableView;
 }
