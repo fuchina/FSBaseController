@@ -78,7 +78,8 @@ static BOOL fitIOS15 = NO;
     }
     
     if (_cellDeselectIndexPath && _cellDeselectView) {
-        [_cellDeselectView deselectRowAtIndexPath: self.cellDeselectIndexPath animated: YES];
+        [_cellDeselectView deselectRowAtIndexPath: _cellDeselectIndexPath animated: YES];
+        _cellDeselectIndexPath = nil;
     }
 }
 
