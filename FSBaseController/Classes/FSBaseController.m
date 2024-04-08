@@ -66,6 +66,12 @@ static BOOL fitIOS15 = NO;
         // translucent为YES，self.view布局从屏幕顶部(0,0)开始，如果为NO会从导航栏底部开始
         self.navigationController.navigationBar.translucent = YES;
     }
+    
+    if (_cellDeselectIndexPath && _cellDeselectView) {
+        [_cellDeselectView deselectRowAtIndexPath: _cellDeselectIndexPath animated: YES];
+        _cellDeselectIndexPath = nil;
+        _cellDeselectView = nil;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -75,11 +81,6 @@ static BOOL fitIOS15 = NO;
                 
         self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:FSKit.appName style:UIBarButtonItemStylePlain target:nil action:nil];
         self.navigationController.navigationBar.topItem.backBarButtonItem.tintColor = self.view.tintColor;
-    }
-    
-    if (_cellDeselectIndexPath && _cellDeselectView) {
-        [_cellDeselectView deselectRowAtIndexPath: _cellDeselectIndexPath animated: YES];
-        _cellDeselectIndexPath = nil;
     }
 }
 
