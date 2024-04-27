@@ -47,8 +47,13 @@
 /**
  *  状态栏方向监听及回调
  */
-- (void)baseAddDidChangeStatusBarOrientationNotification;
+- (void)baseAddBarOrientationChangedNotification;
 - (void)baseHandleChangeStatusBarOrientation:(UIInterfaceOrientation)orientation;
+
+/**
+ *  获取当前的Window Scene
+ */
+- (UIWindowScene *)currentWindowScene;
 
 /**
  *  tableView cell 反选效果

@@ -23,6 +23,8 @@
     BOOL        _onceBase_viewWillAppear;
     UIView      *_backTapView;
     BOOL        _baseComponentAmounted;
+    
+    BOOL        _baseAddDidChangeStatusBarOrientationNotification;
 }
 
 - (void)dealloc {
@@ -44,16 +46,31 @@ static BOOL fitIOS15 = NO;
     fitIOS15 = YES;
 }
 
-- (void)baseAddDidChangeStatusBarOrientationNotification {
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleOrientationDidChangeNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
+- (void)baseAddBarOrientationChangedNotification {
+    _baseAddDidChangeStatusBarOrientationNotification = YES;
 }
 
-- (void)handleOrientationDidChangeNotification:(NSNotification *)notification {
-    UIApplication *app = notification.object;
-    if (![app isKindOfClass:UIApplication.class]) {
-        return;
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
+    if (_baseAddDidChangeStatusBarOrientationNotification) {
+        [self handleOrientationDidChange];
     }
-    [self baseHandleChangeStatusBarOrientation:app.statusBarOrientation];
+}
+
+- (void)handleOrientationDidChange {
+    UIWindowScene *ws = [self currentWindowScene];
+    UIInterfaceOrientation fo = ws.interfaceOrientation;
+    [self baseHandleChangeStatusBarOrientation: fo];
+}
+
+- (UIWindowScene *)currentWindowScene {
+    NSSet *scenes = UIApplication.sharedApplication.connectedScenes;
+    for (UIScene *sc in scenes) {
+        if (sc.activationState == UISceneActivationStateForegroundActive) {
+            return (UIWindowScene *)sc;
+        }
+    }
+    NSAssert(1==2, @"%@ currentWindowScene", self.class);
+    return nil;
 }
 
 - (void)baseHandleChangeStatusBarOrientation:(UIInterfaceOrientation)orientation {}
