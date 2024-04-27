@@ -206,7 +206,7 @@ static BOOL fitIOS15 = NO;
             [self.view bringSubviewToFront:_baseLoadingView];
             _baseLoadingView.frame = [UIScreen mainScreen].bounds;
             _baseBackView.frame = blackRect;
-        }else{
+        } else {
             _baseLoadingView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
             [self.view insertSubview:_baseLoadingView atIndex:self.view.subviews.count];
             
@@ -216,7 +216,7 @@ static BOOL fitIOS15 = NO;
             _baseBackView.layer.cornerRadius = 6;
             [_baseLoadingView addSubview:_baseBackView];
             
-            UIActivityIndicatorView *active = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+            UIActivityIndicatorView *active = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleLarge];
             active.frame = CGRectMake(0, 0, _baseBackView.width, _baseBackView.height);
             [active startAnimating];
             [_baseBackView addSubview:active];
