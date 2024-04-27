@@ -51,11 +51,6 @@
 - (void)baseHandleChangeStatusBarOrientation:(UIInterfaceOrientation)orientation;
 
 /**
- *  获取当前的Window Scene
- */
-- (UIWindowScene *)currentWindowScene;
-
-/**
  *  tableView cell 反选效果
  */
 - (void)configCellDeselectView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;

@@ -57,20 +57,9 @@ static BOOL fitIOS15 = NO;
 }
 
 - (void)handleOrientationDidChange {
-    UIWindowScene *ws = [self currentWindowScene];
+    UIWindowScene *ws = [FSKit currentWindowScene];
     UIInterfaceOrientation fo = ws.interfaceOrientation;
     [self baseHandleChangeStatusBarOrientation: fo];
-}
-
-- (UIWindowScene *)currentWindowScene {
-    NSSet *scenes = UIApplication.sharedApplication.connectedScenes;
-    for (UIScene *sc in scenes) {
-        if (sc.activationState == UISceneActivationStateForegroundActive) {
-            return (UIWindowScene *)sc;
-        }
-    }
-    NSAssert(1==2, @"%@ currentWindowScene", self.class);
-    return nil;
 }
 
 - (void)baseHandleChangeStatusBarOrientation:(UIInterfaceOrientation)orientation {}
