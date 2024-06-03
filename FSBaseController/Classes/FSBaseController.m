@@ -82,12 +82,19 @@ static BOOL fitIOS15 = NO;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    _isVisibling = YES;
+    
     if (!_onceBase) {
         _onceBase = YES;
                 
         self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:FSKit.appName style:UIBarButtonItemStylePlain target:nil action:nil];
         self.navigationController.navigationBar.topItem.backBarButtonItem.tintColor = self.view.tintColor;
     }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear: animated];
+    _isVisibling = NO;
 }
 
 - (void)viewDidLoad {
@@ -139,6 +146,7 @@ static BOOL fitIOS15 = NO;
     
     if (!_baseComponentAmounted) {
         _baseComponentAmounted = YES;
+        _isVisibling = YES;
         [self componentWillMount];
     }
 }
