@@ -105,14 +105,14 @@ static BOOL fitIOS15 = NO;
     
 //    [FSTrack event:NSStringFromClass([self class])];
     
-    CGFloat rgb = (250 - 5) / 255.0;
-    self.view.backgroundColor = [UIColor colorWithRed:rgb green:rgb blue:rgb alpha:1];
+    CGFloat rgb = 239.0 / 255;
+    self.view.backgroundColor = [UIColor colorWithRed: rgb green: rgb blue: rgb alpha: 1];
     
-    _backTapView = [FSViewManager viewWithFrame:self.view.bounds backColor:nil];
-    [self.view addSubview:_backTapView];
+    _backTapView = [FSViewManager viewWithFrame: self.view.bounds backColor: nil];
+    [self.view addSubview: _backTapView];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActionBase)];
-    [_backTapView addGestureRecognizer:tap];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(tapActionBase)];
+    [_backTapView addGestureRecognizer: tap];
 }
 
 - (void)fitIOS15 {
@@ -160,7 +160,7 @@ static BOOL fitIOS15 = NO;
 - (void)baseHandleDatas {}
 - (void)baseDesignViews {}
 
-- (void)tapActionBase{
+- (void)tapActionBase {
     [self.view endEditing:YES];
 }
 
