@@ -21,6 +21,8 @@
 
 + (void)fitIOS15;
 
+@property (nonatomic, copy)  NSString           *backBarButtonItemTitle;
+
 @property (nonatomic,strong) FSTapScrollView    *scrollView;
 
 - (void)showWaitView:(BOOL)show;

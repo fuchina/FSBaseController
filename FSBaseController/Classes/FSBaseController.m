@@ -86,8 +86,8 @@ static BOOL fitIOS15 = NO;
     
     if (!_onceBase) {
         _onceBase = YES;
-                
-        self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:FSKit.appName style:UIBarButtonItemStylePlain target:nil action:nil];
+        
+        self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: self.backBarButtonItemTitle ? : FSKit.appName style: UIBarButtonItemStylePlain target: nil action: nil];
         self.navigationController.navigationBar.topItem.backBarButtonItem.tintColor = self.view.tintColor;
     }
 }
