@@ -7,6 +7,7 @@
 
 #import "UIAlertController+ClickDismiss.h"
 #import "FSKit.h"
+#import "FSTapGestureRecognizer.h"
 
 @implementation UIAlertController (ClickDismiss)
 
@@ -19,13 +20,14 @@
         }
         
         backView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(tap)];
+        FSTapGestureRecognizer *tap = [[FSTapGestureRecognizer alloc] initWithTarget: self action: @selector(tap:)];
+        tap.object = self;
         [backView addGestureRecognizer: tap];
     }
     return YES;
 }
 
--(void)tap {
+-(void)tap:(FSTapGestureRecognizer *)tap {
     [self dismissViewControllerAnimated: YES completion: nil];
 }
 
