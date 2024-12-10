@@ -11,7 +11,7 @@
 
 @implementation UIAlertController (ClickDismiss)
 
-- (BOOL)addTapEvent {
+- (BOOL)addTapEvent:(void (^)(UIAlertController *controller))clickDismiss {
     NSArray *views = [FSKit currentWindowScene].keyWindow.subviews;
     if (views.count > 0) {
         UIView *backView = views.lastObject;
@@ -21,14 +21,18 @@
         
         backView.userInteractionEnabled = YES;
         FSTapGestureRecognizer *tap = [[FSTapGestureRecognizer alloc] initWithTarget: self action: @selector(tap:)];
-        tap.object = self;
+        tap.clickBack = clickDismiss;
         [backView addGestureRecognizer: tap];
     }
     return YES;
 }
 
 -(void)tap:(FSTapGestureRecognizer *)tap {
-    [self dismissViewControllerAnimated: YES completion: nil];
+    if (tap.clickBack) {
+        tap.clickBack(self);
+    } else {
+        [self dismissViewControllerAnimated: YES completion: nil];
+    }
 }
 
 @end
