@@ -28,9 +28,7 @@
 }
 
 -(void)tap:(FSTapGestureRecognizer *)tap {
-    CGPoint p = [tap locationInView: tap.view];
-    NSLog(@"%@", NSStringFromCGPoint(p));
-    
+    CGPoint p = [tap locationInView: tap.view];    
     if (tap.clickBack) {
         tap.clickBack(self, p);
     } else {
