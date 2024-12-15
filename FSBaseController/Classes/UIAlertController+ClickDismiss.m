@@ -11,7 +11,7 @@
 
 @implementation UIAlertController (ClickDismiss)
 
-- (BOOL)addTapEvent:(void (^)(UIAlertController *controller))clickDismiss {
+- (BOOL)addTapEvent:(void (^)(UIAlertController *controller, CGPoint tap_point))clickDismiss {
     NSArray *views = [FSKit currentWindowScene].keyWindow.subviews;
     if (views.count > 0) {
         UIView *backView = views.lastObject;
@@ -28,8 +28,11 @@
 }
 
 -(void)tap:(FSTapGestureRecognizer *)tap {
+    CGPoint p = [tap locationInView: tap.view];
+    NSLog(@"%@", NSStringFromCGPoint(p));
+    
     if (tap.clickBack) {
-        tap.clickBack(self);
+        tap.clickBack(self, p);
     } else {
         [self dismissViewControllerAnimated: YES completion: nil];
     }

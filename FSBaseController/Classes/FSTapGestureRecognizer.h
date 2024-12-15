@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FSTapGestureRecognizer : UITapGestureRecognizer
 
-@property (nonatomic, copy) void (^clickBack)(UIAlertController *alert);
+@property (nonatomic, copy) void (^clickBack)(UIAlertController *alert, CGPoint tap_point);
 
 @end
 

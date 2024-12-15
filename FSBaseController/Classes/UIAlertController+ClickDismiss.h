@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIAlertController (ClickDismiss)
 
-- (BOOL)addTapEvent:(void (^)(UIAlertController *controller))clickDismiss;
+- (BOOL)addTapEvent:(void (^)(UIAlertController *controller, CGPoint tap_point))clickDismiss;
 
 @end
 
