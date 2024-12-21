@@ -32,6 +32,21 @@
     if (tap.clickBack) {
         tap.clickBack(self, p);
     } else {
+        [self handleAlertClick];
+    }
+}
+
+- (void)handleAlertClick {
+    NSArray *tfs = self.textFields;
+    BOOL hasData = NO;
+    for (UITextField *tf in tfs) {
+        if (tf.text.length > 0) {
+            hasData = YES;
+            break;
+        }
+    }
+    
+    if (hasData) {} else {
         [self dismissViewControllerAnimated: YES completion: nil];
     }
 }
