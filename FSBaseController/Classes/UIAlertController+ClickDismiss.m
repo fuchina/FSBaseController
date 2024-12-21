@@ -31,8 +31,6 @@
     CGPoint p = [tap locationInView: tap.view];    
     if (tap.clickBack) {
         tap.clickBack(self, p);
-    } else {
-        [self handleAlertClick];
     }
 }
 
