@@ -152,6 +152,15 @@ static BOOL fitIOS15 = NO;
 }
 
 - (void)componentWillMount {
+#if TARGET_IPHONE_SIMULATOR
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    if (viewControllers.count >= 2) {
+        UIViewController *from = viewControllers[viewControllers.count - 2];
+        NSLog(@"\n%@ FROM\n", from.class);
+    }
+#else
+#endif
+    
     if (self.navigationController) {
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     }
