@@ -84,12 +84,12 @@ static BOOL fitIOS15 = NO;
     [super viewDidAppear:animated];
     _isVisibling = YES;
     
-    if (!_onceBase) {
-        _onceBase = YES;
-        
-        self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: self.backBarButtonItemTitle ? : FSKit.appName style: UIBarButtonItemStylePlain target: nil action: nil];
-        self.navigationController.navigationBar.topItem.backBarButtonItem.tintColor = self.view.tintColor;
-    }
+//    if (!_onceBase) {
+//        _onceBase = YES;
+//        
+//        self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: self.backBarButtonItemTitle ? : FSKit.appName style: UIBarButtonItemStylePlain target: nil action: nil];
+//        self.navigationController.navigationBar.topItem.backBarButtonItem.tintColor = self.view.tintColor;
+//    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
