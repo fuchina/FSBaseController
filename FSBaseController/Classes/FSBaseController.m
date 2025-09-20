@@ -176,7 +176,7 @@ static BOOL fitIOS15 = NO;
 - (FSTapScrollView *)scrollView {
     if (!_scrollView) {
         // 纵坐标即使为0，子视图也是从导航栏下面开始布局
-        _scrollView = [[FSTapScrollView alloc] initWithFrame:CGRectMake(0, self.view.safeAreaInsets_fs.top, WIDTHFC, HEIGHTFC - self.view.safeAreaInsets_fs.top)];
+        _scrollView = [[FSTapScrollView alloc] initWithFrame:CGRectMake(0, self.view.safeAreaInsets.top, WIDTHFC, HEIGHTFC - self.view.safeAreaInsets.top)];
         _scrollView.contentSize = CGSizeMake(WIDTHFC, HEIGHTFC + 10);
         _scrollView.showsVerticalScrollIndicator = NO;
 //        _scrollView.delaysContentTouches = NO;  // 是干嘛的？
@@ -234,7 +234,7 @@ static BOOL fitIOS15 = NO;
 }
 
 - (UIView *)fs_bottomView {
-    CGFloat h = self.view.safeAreaInsets_fs.bottom + 45;
+    CGFloat h = self.view.safeAreaInsets.bottom + 45;
     FSView *bottomView = [[FSView alloc] initWithFrame:CGRectMake(0, HEIGHTFC - h, WIDTHFC, h)];
     bottomView.backgroundColor = UIColor.whiteColor;
     return bottomView;

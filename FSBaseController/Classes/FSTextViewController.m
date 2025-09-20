@@ -51,7 +51,7 @@
     UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithTitle:@"确认" style:UIBarButtonItemStylePlain target:self action:@selector(doneAction)];
     self.navigationItem.rightBarButtonItem = bbi;
     
-    _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, self.view.safeAreaInsets_fs.top, UIScreen.mainScreen.bounds.size.width, UIScreen.mainScreen.bounds.size.height - 300)];
+    _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, self.view.safeAreaInsets.top, UIScreen.mainScreen.bounds.size.width, UIScreen.mainScreen.bounds.size.height - 300)];
     _textView.font = [UIFont systemFontOfSize:16];
     _textView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_textView];
