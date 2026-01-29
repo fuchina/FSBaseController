@@ -153,7 +153,7 @@ open class FSBaseControllerS: UIViewController {
         }
     }
     
-    func componentWillMount() {
+    open func componentWillMount() {
         
         #if TARGET_IPHONE_SIMULATOR
         let vcs = self.navigationController?.viewControllers
