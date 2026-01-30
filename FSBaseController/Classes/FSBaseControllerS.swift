@@ -11,7 +11,7 @@ import FSKit
 
 open class FSBaseControllerS: UIViewController {
     
-    weak var        _cellDeselectIndexPath  :   NSIndexPath?             =       nil
+    var             _cellDeselectIndexPath  :   IndexPath?               =       nil
     weak var        _cellDeselectView       :   UITableView?             =       nil
     
     var             _baseAddDidChangeStatusBarOrientationNotification    :   Bool             =       false
@@ -35,7 +35,7 @@ open class FSBaseControllerS: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    open func configCellDeselectView(tableView: UITableView, indexPath: NSIndexPath) {
+    open func configCellDeselectView(tableView: UITableView, indexPath: IndexPath) {
         _cellDeselectIndexPath = indexPath
         _cellDeselectView = tableView
     }
