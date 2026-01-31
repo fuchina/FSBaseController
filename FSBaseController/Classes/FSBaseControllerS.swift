@@ -178,9 +178,9 @@ open class FSBaseControllerS: UIViewController {
         scrollView.contentSize = CGSizeMake(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height + 10)
         scrollView.showsVerticalScrollIndicator = false
         scrollView.contentInsetAdjustmentBehavior = .never
-        
+
         if _back_tap_view == nil {
-            self.view .addSubview(scrollView)
+            self.view.addSubview(scrollView)
         } else {
             self.view.insertSubview(scrollView, aboveSubview: _back_tap_view!)
         }
