@@ -9,6 +9,7 @@ import Foundation
 
 import FSKit
 
+@objc
 open class FSBaseControllerS: UIViewController {
     
     var             _cellDeselectIndexPath  :   IndexPath?               =       nil
@@ -172,7 +173,7 @@ open class FSBaseControllerS: UIViewController {
     open func baseHandleDatas() {}
     open func baseDesignViews() {}
     
-    lazy var scrollView: UIScrollView = {
+    @objc open lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView(frame: CGRect(x: 0, y: self.view.safeAreaInsets.top, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - self.view.safeAreaInsets.top))
         scrollView.contentSize = CGSizeMake(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height + 10)
         scrollView.showsVerticalScrollIndicator = false
