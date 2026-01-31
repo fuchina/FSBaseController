@@ -126,16 +126,15 @@ open class FSBaseControllerS: UIViewController {
         if FSBaseControllerS.fitIOS15 {
             fitIOS15()
         }
-        
+                
         let rgb = 0.95
         self.view.backgroundColor = UIColor.init(red: rgb, green: rgb, blue: rgb, alpha: 1.0)
-        
+                
         _back_tap_view = UIView(frame: self.view.bounds)
         self.view.addSubview(_back_tap_view!)
         
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapActionBase))
         _back_tap_view?.addGestureRecognizer(tap)
-        
     }
     
     @objc func tapActionBase() {
