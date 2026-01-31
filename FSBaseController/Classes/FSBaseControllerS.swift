@@ -41,7 +41,7 @@ open class FSBaseControllerS: UIViewController {
         _cellDeselectView = tableView
     }
     
-    static var fitIOS15 : Bool = false
+    static var fitIOS15 : Bool = true
     static public func fitIOS15System() {
         FSBaseControllerS.fitIOS15 = true
     }
