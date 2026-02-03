@@ -7,7 +7,7 @@
 
 import UIKit
 
-@objc open class FSShakeBaseController: FSBaseControllerS {
+@objc open class FSShakeBaseController: FSBaseController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()

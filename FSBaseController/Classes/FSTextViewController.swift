@@ -7,7 +7,7 @@
 
 import UIKit
 
-@objc open class FSTextViewController: FSBaseControllerS, FSNavigationControllerPopDelegate {
+@objc open class FSTextViewController: FSBaseController, FSNavigationControllerPopDelegate {
     
     @objc public var text: String?
     @objc public var completion: ((FSTextViewController, String?) -> Void)?

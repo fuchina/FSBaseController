@@ -33,7 +33,7 @@ import UIKit
 
 public typealias FSSelectControllerBlock = (FSSelectController, IndexPath, [FSSelectModel]) -> Void
 
-@objc open class FSSelectController: FSBaseControllerS, UITableViewDelegate, UITableViewDataSource {
+@objc open class FSSelectController: FSBaseController, UITableViewDelegate, UITableViewDataSource {
     
     @objc public var models: [FSSelectModel] = []
     @objc public var configCell: ((UITableViewCell, IndexPath, [FSSelectModel]) -> Void)?

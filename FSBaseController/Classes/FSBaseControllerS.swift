@@ -43,7 +43,7 @@ open class FSBaseController: UIViewController {
     
     static var fitIOS15 : Bool = true
     static public func fitIOS15System() {
-        FSBaseControllerS.fitIOS15 = true
+        FSBaseController.fitIOS15 = true
     }
     
     open func baseAddBarOrientationChangedNotification() {
@@ -123,7 +123,7 @@ open class FSBaseController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        if FSBaseControllerS.fitIOS15 {
+        if FSBaseController.fitIOS15 {
             fitIOS15()
         }
                 

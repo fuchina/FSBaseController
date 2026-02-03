@@ -9,7 +9,7 @@ import UIKit
 
 public typealias FSSelectSectionBlock = (FSSelectSectionController, [[String]], Int, Int) -> Void
 
-@objc open class FSSelectSectionController: FSBaseControllerS, UITableViewDataSource, UITableViewDelegate {
+@objc open class FSSelectSectionController: FSBaseController, UITableViewDataSource, UITableViewDelegate {
     
     @objc public var array: [[String]] = []
     @objc public var block: FSSelectSectionBlock?
