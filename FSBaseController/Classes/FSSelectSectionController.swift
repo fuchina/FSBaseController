@@ -7,6 +7,8 @@
 
 import UIKit
 
+import FSBaseController
+
 public typealias FSSelectSectionBlock = (FSSelectSectionController, [[String]], Int, Int) -> Void
 
 @objc open class FSSelectSectionController: FSBaseController, UITableViewDataSource, UITableViewDelegate {
