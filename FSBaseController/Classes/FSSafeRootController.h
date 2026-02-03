@@ -1,16 +1,16 @@
+////
+////  FSSafeRootController.h
+////  FSBaseController
+////
+////  Created by Dongdong Fu on 2024/2/22.
+////
 //
-//  FSSafeRootController.h
-//  FSBaseController
+//#import "FSBaseController.h"
 //
-//  Created by Dongdong Fu on 2024/2/22.
+//NS_ASSUME_NONNULL_BEGIN
 //
-
-#import "FSBaseController.h"
-
-NS_ASSUME_NONNULL_BEGIN
-
-@interface FSSafeRootController : FSBaseController
-
-@end
-
-NS_ASSUME_NONNULL_END
+//@interface FSSafeRootController : FSBaseController
+//
+//@end
+//
+//NS_ASSUME_NONNULL_END

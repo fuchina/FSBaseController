@@ -10,7 +10,7 @@ import Foundation
 import FSKit
 
 @objc
-open class FSBaseControllerS: UIViewController {
+open class FSBaseController: UIViewController {
     
     var             _cellDeselectIndexPath  :   IndexPath?               =       nil
     weak var        _cellDeselectView       :   UITableView?             =       nil
