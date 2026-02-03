@@ -1,16 +1,16 @@
+////
+////  FSTextViewController.h
+////  myhome
+////
+////  Created by FudonFuchina on 2017/8/15.
+////  Copyright © 2017年 fuhope. All rights reserved.
+////
 //
-//  FSTextViewController.h
-//  myhome
+//#import "FSBaseController.h"
 //
-//  Created by FudonFuchina on 2017/8/15.
-//  Copyright © 2017年 fuhope. All rights reserved.
+//@interface FSTextViewController : FSBaseController
 //
-
-#import "FSBaseController.h"
-
-@interface FSTextViewController : FSBaseController
-
-@property (nonatomic,copy) NSString *text;
-@property (nonatomic,copy) void (^completion)(FSTextViewController *bVC,NSString *bText);
-
-@end
+//@property (nonatomic,copy) NSString *text;
+//@property (nonatomic,copy) void (^completion)(FSTextViewController *bVC,NSString *bText);
+//
+//@end

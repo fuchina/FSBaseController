@@ -1,12 +1,12 @@
+////
+////  FSTapGestureRecognizer.m
+////  FSBaseController
+////
+////  Created by 扶冬冬 on 2024/12/10.
+////
 //
-//  FSTapGestureRecognizer.m
-//  FSBaseController
+//#import "FSTapGestureRecognizer.h"
 //
-//  Created by 扶冬冬 on 2024/12/10.
+//@implementation FSTapGestureRecognizer
 //
-
-#import "FSTapGestureRecognizer.h"
-
-@implementation FSTapGestureRecognizer
-
-@end
+//@end
