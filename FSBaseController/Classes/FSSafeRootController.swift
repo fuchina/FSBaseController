@@ -7,8 +7,6 @@
 
 import UIKit
 
-import FSBaseController
-
 @objc open class FSSafeRootController: FSBaseController, UIGestureRecognizerDelegate {
     
     open override func viewWillAppear(_ animated: Bool) {
