@@ -57,7 +57,7 @@ open class FSBaseController: UIViewController {
     }
     
     func handleOrientationDidChange() {
-        let ws = FSKitSwift.currentWindowScene()
+        let ws = FSKit.currentWindowScene()
         guard let ws = ws else {
             return
         }
@@ -188,7 +188,7 @@ open class FSBaseController: UIViewController {
         scrollView.addGestureRecognizer(tap)
         
         if self.navigationController != nil {
-            FSKitSwift.fitScrollViewOperate(scrollView: scrollView, navigationController: self.navigationController!)
+            FSKit.fitScrollViewOperate(scrollView, navigationController: self.navigationController)
         }
         
         return scrollView
