@@ -9,7 +9,6 @@ import Foundation
 
 import FSKit
 
-@objc
 open class FSBaseController: UIViewController {
     
     var             _cellDeselectIndexPath  :   IndexPath?               =       nil
@@ -132,12 +131,12 @@ open class FSBaseController: UIViewController {
                 
         _back_tap_view = UIView(frame: self.view.bounds)
         self.view.addSubview(_back_tap_view!)
-        
+                
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapActionBase))
         _back_tap_view?.addGestureRecognizer(tap)
     }
     
-    @objc func tapActionBase() {
+    @objc public func tapActionBase() {
         self.view.endEditing(true)
     }
     
@@ -172,7 +171,7 @@ open class FSBaseController: UIViewController {
     open func baseHandleDatas() {}
     open func baseDesignViews() {}
     
-    @objc open lazy var scrollView: UIScrollView = {
+    open lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView(frame: CGRect(x: 0, y: self.view.safeAreaInsets.top, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - self.view.safeAreaInsets.top))
         scrollView.contentSize = CGSizeMake(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height + 10)
         scrollView.showsVerticalScrollIndicator = false
