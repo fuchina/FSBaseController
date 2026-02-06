@@ -199,7 +199,7 @@ open class FSBaseController: UIViewController {
         return .lightContent
     }
     
-    open func showWaitView(show: Bool) {
+    open func showWaitView(_ show: Bool) {
         
         if show {
             let blackWidth = 80
