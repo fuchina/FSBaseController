@@ -66,7 +66,7 @@ open class FSBaseController: UIViewController {
         baseHandleChangeStatusBarOrientation(orientation: fo)
     }
     
-    public func baseHandleChangeStatusBarOrientation(orientation: UIInterfaceOrientation) {}
+    open func baseHandleChangeStatusBarOrientation(orientation: UIInterfaceOrientation) {}
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
