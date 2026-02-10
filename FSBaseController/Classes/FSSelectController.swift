@@ -7,12 +7,13 @@
 
 import UIKit
 
-@objc open class FSSelectModel: NSObject {
-    @objc public var selected: Bool = false
-    @objc public var content_id: String?
-    @objc public var content_show: String?
+open class FSSelectModel: NSObject {
     
-    @objc public static func fastModels(withTexts texts: [String]?) -> [FSSelectModel]? {
+    public var selected: Bool = false
+    public var content_id: String = ""
+    public var content_show: String = ""
+    
+    public static func fastModels(withTexts texts: [String]?) -> [FSSelectModel]? {
         guard let texts = texts else { return nil }
         
         var list: [FSSelectModel] = []
@@ -25,7 +26,7 @@ import UIKit
         return list
     }
     
-    @objc public static func selectedModels(from models: [FSSelectModel]?) -> [FSSelectModel] {
+    public static func selectedModels(from models: [FSSelectModel]?) -> [FSSelectModel] {
         guard let models = models else { return [] }
         return models.filter { $0.selected }
     }
@@ -33,7 +34,7 @@ import UIKit
 
 public typealias FSSelectControllerBlock = (FSSelectController, IndexPath, [FSSelectModel]) -> Void
 
-@objc open class FSSelectController: FSBaseController, UITableViewDelegate, UITableViewDataSource {
+open class FSSelectController: FSBaseController, UITableViewDelegate, UITableViewDataSource {
     
     @objc public var models: [FSSelectModel] = []
     @objc public var configCell: ((UITableViewCell, IndexPath, [FSSelectModel]) -> Void)?
