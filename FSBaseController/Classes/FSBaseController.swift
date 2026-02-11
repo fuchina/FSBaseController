@@ -98,9 +98,11 @@ open class FSBaseController: UIViewController {
         _isVisibling = false
         
         if self.isMovingFromParent {
-            
+            self.disappearFraomParent()
         }
     }
+    
+    open func disappearFraomParent() {}
         
     func fitIOS15() {
         if #available(iOS 15.0, *) {} else {
