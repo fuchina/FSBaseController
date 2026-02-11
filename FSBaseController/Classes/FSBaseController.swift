@@ -96,6 +96,10 @@ open class FSBaseController: UIViewController {
         super.viewDidDisappear(animated)
         
         _isVisibling = false
+        
+        if self.isMovingFromParent {
+            
+        }
     }
         
     func fitIOS15() {
