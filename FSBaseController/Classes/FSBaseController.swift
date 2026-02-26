@@ -184,6 +184,9 @@ open class FSBaseController: UIViewController {
         scrollView.contentSize = CGSizeMake(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height + 10)
         scrollView.showsVerticalScrollIndicator = false
         scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.click = { [weak self] view in
+            self?.tapActionBase()
+        }
 
         if _back_tap_view == nil {
             self.view.addSubview(scrollView)
@@ -191,8 +194,8 @@ open class FSBaseController: UIViewController {
             self.view.insertSubview(scrollView, aboveSubview: _back_tap_view!)
         }
         
-        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapActionBase))
-        scrollView.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapActionBase))
+//        scrollView.addGestureRecognizer(tap)
         
         if self.navigationController != nil {
             FSKit.fitScrollViewOperate(scrollView, navigationController: self.navigationController)
