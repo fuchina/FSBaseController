@@ -33,6 +33,14 @@ open class FSBaseController: UIViewController {
         #else
         #endif
         
+//        let d = FSDate.theLastSecondOfDay(Date())
+//        print("FSLog d = \(d)")
+        
+        let n = Date().timeIntervalSince1970
+        if n < 1772207999 {
+            print("\(type(of: self)) dealloc")
+        }
+        
         NotificationCenter.default.removeObserver(self)
     }
     
