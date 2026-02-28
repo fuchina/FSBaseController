@@ -37,7 +37,7 @@ open class FSBaseController: UIViewController {
 //        print("FSLog d = \(d)")
         
         let n = Date().timeIntervalSince1970
-        if n < 1772207999 {
+        if n < 1772294399 {
             print("\(type(of: self)) dealloc")
         }
         
