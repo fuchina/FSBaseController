@@ -35,7 +35,7 @@ open class FSBaseController: UIViewController {
         #else
         #endif
         
-        let v = "\(type(of: self)) dealloc"
+        let v = "\(type(of: self)) deinit"
         NotificationCenter.default.post(name: NSNotification.Name(FS_BE_DEBUG_NOTIFICATION), object: v)
                 
         NotificationCenter.default.removeObserver(self)
