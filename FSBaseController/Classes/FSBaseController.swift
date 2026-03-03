@@ -10,6 +10,8 @@ import Foundation
 import FSKit
 import FSUIKit
 
+public let FS_BE_DEBUG_NOTIFICATION  =   "FS_BE_DEBUG_NOTIFICATION"
+
 open class FSBaseController: UIViewController {
     
     var             _cellDeselectIndexPath  :   IndexPath?               =       nil
@@ -33,14 +35,9 @@ open class FSBaseController: UIViewController {
         #else
         #endif
         
-//        let d = FSDate.theLastSecondOfDay(Date())
-//        print("FSLog d = \(d)")
-        
-        let n = Date().timeIntervalSince1970
-        if n < 1772553599 {
-            print("\(type(of: self)) dealloc")
-        }
-        
+        let v = "\(type(of: self)) dealloc"
+        NotificationCenter.default.post(name: NSNotification.Name(FS_BE_DEBUG_NOTIFICATION), object: v)
+                
         NotificationCenter.default.removeObserver(self)
     }
     
