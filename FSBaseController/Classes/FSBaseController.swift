@@ -17,7 +17,7 @@ open class FSBaseController: UIViewController {
     var             _cellDeselectIndexPath  :   IndexPath?               =       nil
     weak var        _cellDeselectView       :   UITableView?             =       nil
     
-    var             _baseAddDidChangeStatusBarOrientationNotification    :   Bool             =       false
+    var             _baseStatusBarOrientationNotification  :   Bool      =       false
     
     var             _onceBase_viewWillAppear:   Bool                     =       false
     var             _isVisibling            :   Bool                     =       false
@@ -28,6 +28,8 @@ open class FSBaseController: UIViewController {
     
     var             _baseLoadingView        :   UIView?                  =        nil
     var             _baseBackView           :   UIView?                  =        nil
+    
+    var             _after_view_create      :   Bool                     =        false
 
     deinit {
         #if TARGET_IPHONE_SIMULATOR
@@ -41,6 +43,14 @@ open class FSBaseController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    open func afterViewCreate() -> Bool {
+        if _after_view_create {
+            return _after_view_create
+        }
+        _after_view_create = true
+        return false
+    }
+    
     open func configCellDeselectView(tableView: UITableView, indexPath: IndexPath) {
         _cellDeselectIndexPath = indexPath
         _cellDeselectView = tableView
@@ -52,11 +62,11 @@ open class FSBaseController: UIViewController {
     }
     
     open func baseAddBarOrientationChangedNotification() {
-        _baseAddDidChangeStatusBarOrientationNotification = true
+        _baseStatusBarOrientationNotification = true
     }
     
     override open func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
-        if _baseAddDidChangeStatusBarOrientationNotification {
+        if _baseStatusBarOrientationNotification {
             handleOrientationDidChange()
         }
     }
