@@ -10,8 +10,6 @@ import Foundation
 import FSKit
 import FSUIKit
 
-public let FS_BE_DEBUG_NOTIFICATION  =   "FS_BE_DEBUG_NOTIFICATION"
-
 open class FSBaseController: UIViewController {
     
     var             _cellDeselectIndexPath  :   IndexPath?               =       nil
