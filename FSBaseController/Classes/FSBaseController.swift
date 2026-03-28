@@ -254,11 +254,11 @@ open class FSBaseController: UIViewController {
         }
     }
     
-    open func fs_bottomView() -> UIView {
+    open lazy var fs_bottomView: UIView = {
         let h = self.view.safeAreaInsets.bottom + 45
         let bottomView = UIView(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - h, width: UIScreen.main.bounds.size.width, height: h))
         bottomView.backgroundColor = UIColor.white
         return bottomView
-    }
+    }()
     
 }
